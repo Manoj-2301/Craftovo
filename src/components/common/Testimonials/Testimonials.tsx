@@ -46,7 +46,7 @@ export const Testimonials = () => {
   }, [emblaApi]);
 
   return (
-    <section className="py-24 md:py-32 bg-white/[0.01] border-t border-black/[0.03] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-white/[0.01] border-t border-black/[0.03] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-full max-w-[800px] h-[600px] bg-white/40 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
       <Container className="relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">

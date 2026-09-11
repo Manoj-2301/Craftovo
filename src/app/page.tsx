@@ -14,7 +14,7 @@ export default function HomePage() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative pt-48 pb-24 md:pt-64 md:pb-40 overflow-hidden flex flex-col items-center justify-center min-h-[90vh]">
+        <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden flex flex-col items-center justify-center min-h-[70vh]">
           <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Hero Background" fill className="object-cover opacity-[0.07] pointer-events-none mix-blend-multiply grayscale" referrerPolicy="no-referrer" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F4F4F6]/50 to-[#F4F4F6] pointer-events-none"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-white/60 rounded-full blur-[120px] pointer-events-none"></div>
@@ -43,7 +43,7 @@ export default function HomePage() {
         </section>
         
         {/* Capability Ticker */}
-        <section className="py-12 border-y border-black/[0.03] bg-white/[0.01] overflow-hidden flex whitespace-nowrap opacity-50 relative w-full">
+        <section className="py-8 border-y border-black/[0.03] bg-white/[0.01] overflow-hidden flex whitespace-nowrap opacity-50 relative w-full">
           <div className="flex animate-marquee shrink-0 items-center font-outfit text-2xl md:text-3xl font-medium tracking-wide uppercase text-text-main">
             <div className="flex gap-16 px-8 items-center">
               <span>Web Development</span> <span>•</span>
@@ -67,15 +67,15 @@ export default function HomePage() {
         </section>
 
         {/* Services Bento Grid */}
-        <section className="py-32 md:py-48">
+        <section className="py-16 md:py-24">
           <Container>
             <SectionHeading 
               badge="Our Expertise"
               title="Capabilities that drive growth." 
               description="From complex technical architecture to stunning user interfaces, we deliver beautiful, end-to-end solutions tailored to your unique challenges." 
             />
-            <div className="flex flex-col gap-6 md:gap-8 max-w-5xl mx-auto pb-24">
-              <div className="sticky top-[12vh] z-10 w-full"><AnimateIn delay={0.1} className="w-full transition-all duration-500">
+            <div className="flex flex-col gap-6 md:gap-8 max-w-5xl mx-auto pb-12">
+              <AnimateIn delay={0.1} className="sticky top-[12vh] z-10 w-full transition-all duration-500">
                 <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 !bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
                   <div className="flex justify-end w-full relative z-20">
                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-main group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0">
@@ -151,7 +151,7 @@ export default function HomePage() {
         </section>
 
         {/* Performance & Compliance Section */}
-        <section className="py-24 md:py-32 relative bg-white">
+        <section className="py-16 md:py-24 relative bg-white">
           <Container className="relative z-10">
             <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 md:mb-16">
               <SectionHeading 
@@ -162,7 +162,7 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="flex flex-col gap-8 md:gap-12 w-full max-w-5xl mx-auto pb-32">
+            <div className="flex flex-col gap-8 md:gap-12 w-full max-w-5xl mx-auto pb-16">
               {/* Layer 1 - Performance Metrics */}
               <AnimateIn delay={0.1} className="sticky top-[15vh] z-10 w-full transition-all duration-500">
                 <div className="bg-white rounded-[3rem] p-3 md:p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] border border-black/5">
