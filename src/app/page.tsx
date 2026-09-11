@@ -74,9 +74,9 @@ export default function HomePage() {
               title="Capabilities that drive growth." 
               description="From complex technical architecture to stunning user interfaces, we deliver beautiful, end-to-end solutions tailored to your unique challenges." 
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <AnimateIn delay={0.1}>
-                <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 bg-white/90">
+            <div className="flex flex-col gap-6 md:gap-8 max-w-5xl mx-auto pb-24">
+              <div className="sticky top-[12vh] z-10 w-full"><AnimateIn delay={0.1} className="w-full transition-all duration-500">
+                <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 !bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
                   <div className="flex justify-end w-full relative z-20">
                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-main group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0">
                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -93,8 +93,8 @@ export default function HomePage() {
                 </Card>
               </AnimateIn>
 
-              <AnimateIn delay={0.2}>
-                <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 bg-white/90">
+              <AnimateIn delay={0.2} className="sticky top-[15vh] z-20 w-full transition-all duration-500">
+                <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 !bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
                   <div className="flex justify-end w-full relative z-20">
                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-main group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0">
                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -111,8 +111,8 @@ export default function HomePage() {
                 </Card>
               </AnimateIn>
 
-              <AnimateIn delay={0.3}>
-                <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 bg-white/90">
+              <AnimateIn delay={0.3} className="sticky top-[18vh] z-30 w-full transition-all duration-500">
+                <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 !bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
                   <div className="flex justify-end w-full relative z-20">
                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-main group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0">
                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -129,8 +129,8 @@ export default function HomePage() {
                 </Card>
               </AnimateIn>
 
-              <AnimateIn delay={0.4}>
-                 <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 bg-white/90">
+              <AnimateIn delay={0.4} className="sticky top-[21vh] z-40 w-full transition-all duration-500">
+                 <Card href="/services" className="h-full relative overflow-hidden group min-h-[450px] flex flex-col justify-between p-8 md:p-12 border-black/5 hover:border-black/15 !bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
                   <div className="flex justify-end w-full relative z-20">
                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-text-main group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] shrink-0">
                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -164,8 +164,9 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-8 md:gap-12 w-full max-w-5xl mx-auto pb-32">
               {/* Layer 1 - Performance Metrics */}
-              <AnimateIn delay={0.1} className="md:sticky md:top-[15vh] z-10 w-full transition-all duration-500">
-                <div className="bg-white rounded-[2.5rem] p-8 md:p-14 border border-black/5 flex flex-col md:flex-row gap-12 justify-between items-center shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
+              <AnimateIn delay={0.1} className="sticky top-[15vh] z-10 w-full transition-all duration-500">
+                <div className="bg-white rounded-[3rem] p-3 md:p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] border border-black/5">
+                  <div className="bg-black/[0.03] rounded-[2.25rem] p-8 md:p-14 border border-black/5 flex flex-col md:flex-row gap-12 justify-between items-center">
                    <div className="flex-1 w-full text-center md:text-left">
                      <h3 className="font-outfit text-3xl md:text-4xl font-medium text-text-main mb-4">Performance Metrics</h3>
                      <p className="text-text-muted font-light text-xl">Consistent 95%+ scores across all Core Web Vitals.</p>
@@ -176,11 +177,12 @@ export default function HomePage() {
                      <ComplianceChart value={98} label="Performance" />
                      <ComplianceChart value={100} label="SEO" />
                    </div>
+                  </div>
                 </div>
               </AnimateIn>
 
               {/* Layer 2 - Zero Compromises & Security */}
-              <AnimateIn delay={0.2} className="md:sticky md:top-[18vh] z-20 w-full transition-all duration-500">
+              <AnimateIn delay={0.2} className="sticky top-[18vh] z-20 w-full transition-all duration-500">
                 <div className="bg-white rounded-[3rem] p-3 md:p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] border border-black/5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     <div className="bg-[#0B0B0E] rounded-[2.25rem] p-8 md:p-14 border border-white/10 relative overflow-hidden group text-white">
@@ -215,8 +217,9 @@ export default function HomePage() {
               </AnimateIn>
 
               {/* Layer 3 - Global Edge Network */}
-              <AnimateIn delay={0.3} className="md:sticky md:top-[21vh] z-30 w-full transition-all duration-500">
-                <div className="bg-white rounded-[2.5rem] p-8 md:p-14 border border-black/5 relative overflow-hidden shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)]">
+              <AnimateIn delay={0.3} className="sticky top-[21vh] z-30 w-full transition-all duration-500">
+                <div className="bg-white rounded-[3rem] p-3 md:p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.04),0_12px_40px_rgba(0,0,0,0.06)] border border-black/5">
+                  <div className="bg-black/[0.03] rounded-[2.25rem] p-8 md:p-14 border border-black/5 relative overflow-hidden">
                    <div className="flex flex-col md:flex-row gap-12 items-center h-full">
                       <div className="flex-1 relative z-20 text-center md:text-left">
                          <h3 className="font-outfit text-3xl md:text-4xl font-medium text-text-main mb-6">Global Edge Network</h3>
@@ -231,6 +234,7 @@ export default function HomePage() {
                          <Image src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" alt="Servers" fill className="object-cover grayscale opacity-90 mix-blend-multiply" />
                       </div>
                    </div>
+                  </div>
                 </div>
               </AnimateIn>
             </div>
