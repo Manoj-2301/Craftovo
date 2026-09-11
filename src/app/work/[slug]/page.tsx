@@ -46,13 +46,13 @@ export default async function ProjectPage({ params }: Props) {
               <span className="inline-block px-4 py-2 rounded-full glass-panel text-xs font-bold tracking-widest uppercase text-text-muted mb-6">
                 {project.category}
               </span>
-              <h1 className="font-outfit text-4xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight">{project.title}</h1>
+              <h1 className="font-outfit text-4xl md:text-6xl lg:text-7xl font-medium text-text-main tracking-tight">{project.title}</h1>
             </AnimateIn>
 
             <AnimateIn delay={0.2}>
-              <div className="w-full aspect-video glass-panel rounded-[2rem] overflow-hidden relative flex items-center justify-center bg-white/[0.02]">
+              <div className="w-full aspect-video glass-panel rounded-[2rem] overflow-hidden relative flex items-center justify-center bg-white/40">
                  {/* Placeholder for project image */}
-                 <span className="text-white/20 font-outfit text-3xl">Project Image: {project.title}</span>
+                 <span className="text-text-main/20 font-outfit text-3xl">Project Image: {project.title}</span>
               </div>
             </AnimateIn>
           </Container>
@@ -63,7 +63,7 @@ export default async function ProjectPage({ params }: Props) {
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                <div className="w-full lg:w-2/3">
                   <AnimateIn>
-                    <h2 className="font-outfit text-3xl md:text-4xl font-medium mb-8 text-white">Overview</h2>
+                    <h2 className="font-outfit text-3xl md:text-4xl font-medium mb-8 text-text-main">Overview</h2>
                     <p className="text-lg md:text-xl text-text-muted leading-relaxed font-light">{project.longDescription}</p>
                   </AnimateIn>
                </div>
@@ -71,10 +71,10 @@ export default async function ProjectPage({ params }: Props) {
                <div className="w-full lg:w-1/3">
                   <AnimateIn delay={0.1}>
                     <div className="glass-panel p-8 rounded-3xl">
-                       <h3 className="font-outfit text-2xl font-medium mb-6 text-white border-b border-white/10 pb-4">Technologies</h3>
+                       <h3 className="font-outfit text-2xl font-medium mb-6 text-text-main border-b border-black/5 pb-4">Technologies</h3>
                        <div className="flex flex-wrap gap-3">
                          {project.technologies.map(tech => (
-                           <span key={tech} className="px-4 py-2 rounded-full bg-white/5 text-text-muted text-sm border border-white/10">
+                           <span key={tech} className="px-4 py-2 rounded-full bg-black/[0.03] text-text-muted text-sm border border-black/5">
                              {tech}
                            </span>
                          ))}

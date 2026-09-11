@@ -43,34 +43,34 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="glass-panel p-8 md:p-12 rounded-[2rem] flex flex-col gap-8 border-white/10 hover:border-white/20 transition-colors backdrop-blur-3xl relative overflow-hidden">
+    <form onSubmit={handleSubmit(onSubmit)} className="glass-panel p-8 md:p-12 rounded-[2rem] flex flex-col gap-8 border-black/5 hover:border-black/10 transition-colors backdrop-blur-3xl relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-white/80 uppercase tracking-wider">Name</label>
+          <label className="text-sm font-medium text-[#0B0B0E]/80 uppercase tracking-wider">Name</label>
           <input 
             type="text" 
             {...register('name')}
-            className={`p-4 bg-white/[0.03] border ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-white/40'} rounded-xl text-white focus:outline-none focus:bg-white/[0.05] transition-all`} 
+            className={`p-4 bg-white/50 border ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-black/5 focus:border-black/40'} rounded-xl text-[#0B0B0E] focus:outline-none focus:bg-white/70 transition-all`} 
             placeholder="Jane Doe" 
           />
           {errors.name && (
-            <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} className="text-red-400 text-sm mt-1">
+            <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} className="text-red-500 text-sm mt-1">
               {errors.name.message}
             </motion.p>
           )}
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-white/80 uppercase tracking-wider">Email</label>
+          <label className="text-sm font-medium text-[#0B0B0E]/80 uppercase tracking-wider">Email</label>
           <input 
             type="email" 
             {...register('email')}
-            className={`p-4 bg-white/[0.03] border ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-white/40'} rounded-xl text-white focus:outline-none focus:bg-white/[0.05] transition-all`} 
+            className={`p-4 bg-white/50 border ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-black/5 focus:border-black/40'} rounded-xl text-[#0B0B0E] focus:outline-none focus:bg-white/70 transition-all`} 
             placeholder="jane@example.com" 
           />
           {errors.email && (
-            <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} className="text-red-400 text-sm mt-1">
+            <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} className="text-red-500 text-sm mt-1">
               {errors.email.message}
             </motion.p>
           )}
@@ -78,15 +78,15 @@ export const ContactForm = () => {
       </div>
       
       <div className="flex flex-col gap-2 relative z-10">
-        <label className="text-sm font-medium text-white/80 uppercase tracking-wider">Project Details</label>
+        <label className="text-sm font-medium text-[#0B0B0E]/80 uppercase tracking-wider">Project Details</label>
         <textarea 
           rows={6} 
           {...register('details')}
-          className={`p-4 bg-white/[0.03] border ${errors.details ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-white/40'} rounded-xl text-white focus:outline-none focus:bg-white/[0.05] transition-all resize-y`} 
+          className={`p-4 bg-white/50 border ${errors.details ? 'border-red-500/50 focus:border-red-500' : 'border-black/5 focus:border-black/40'} rounded-xl text-[#0B0B0E] focus:outline-none focus:bg-white/70 transition-all resize-y`} 
           placeholder="Tell us about what you want to build, timeline, and budget..."
         ></textarea>
         {errors.details && (
-          <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} className="text-red-400 text-sm mt-1">
+          <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} className="text-red-500 text-sm mt-1">
             {errors.details.message}
           </motion.p>
         )}
@@ -102,14 +102,14 @@ export const ContactForm = () => {
         <motion.div 
           initial={{ opacity: 0, y: 10 }} 
           animate={{ opacity: 1, y: 0 }}
-          className="absolute inset-0 bg-black/80 backdrop-blur-md flex flex-col items-center justify-center z-20 rounded-[2rem]"
+          className="absolute inset-0 bg-white/90 backdrop-blur-md flex flex-col items-center justify-center z-20 rounded-[2rem]"
         >
-          <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 text-white">
+          <div className="w-16 h-16 rounded-full bg-black/5 text-[#0B0B0E] flex items-center justify-center mb-4 text-[#0B0B0E]">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
-          <h3 className="font-outfit text-2xl font-medium text-white mb-2">Message Sent!</h3>
+          <h3 className="font-outfit text-2xl font-medium text-[#0B0B0E] mb-2">Message Sent!</h3>
           <p className="text-text-muted">We'll be in touch shortly.</p>
         </motion.div>
       )}

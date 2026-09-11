@@ -14,8 +14,8 @@ export default function NotFound() {
       <Navbar />
       <main className="flex-1 flex flex-col items-center justify-center py-32">
         <Container className="text-center">
-          <h1 className="font-outfit text-[120px] font-medium mb-4 text-white/10 leading-none">404</h1>
-          <h2 className="font-outfit text-3xl font-medium mb-8 text-white">Looks like this page wasn't crafted yet.</h2>
+          <h1 className="font-outfit text-[120px] font-medium mb-4 text-text-main/10 leading-none">404</h1>
+          <h2 className="font-outfit text-3xl font-medium mb-8 text-text-main">Looks like this page wasn't crafted yet.</h2>
           <Button href="/" variant="primary">
             Back home &rarr;
           </Button>

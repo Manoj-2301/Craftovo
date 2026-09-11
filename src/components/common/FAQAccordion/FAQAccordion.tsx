@@ -39,17 +39,17 @@ export const FAQAccordion = () => {
       {faqs.map((faq, index) => (
         <div 
           key={index} 
-          className="glass-panel border-white/10 rounded-2xl overflow-hidden transition-colors hover:border-white/20"
+          className="glass-panel border-black/5 rounded-2xl overflow-hidden transition-colors hover:border-black/10"
         >
           <button
             onClick={() => toggleOpen(index)}
             className="w-full px-6 py-6 flex items-center justify-between text-left focus:outline-none"
           >
-            <span className="font-outfit text-xl font-medium text-white pr-8">{faq.question}</span>
+            <span className="font-outfit text-xl font-medium text-text-main pr-8">{faq.question}</span>
             <motion.div
               animate={{ rotate: openIndex === index ? 45 : 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="text-white/50 shrink-0"
+              className="text-text-main/50 shrink-0"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>

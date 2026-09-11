@@ -1,34 +1,34 @@
 import Link from 'next/link';
 
 export const Footer = () => (
-  <footer className="pt-24 pb-8 px-6 md:px-8 bg-bg-dark relative overflow-hidden mt-20">
+  <footer className="pt-24 pb-8 px-6 md:px-8 bg-[#F4F4F6] relative overflow-hidden mt-20">
     <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24 relative z-10">
       <div className="md:col-span-2">
-        <Link href="/" className="font-outfit font-bold text-2xl flex items-center gap-3 mb-6 text-white">
-          <span className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center text-sm font-black">C</span>
+        <Link href="/" className="font-outfit font-bold text-2xl flex items-center gap-3 mb-6 text-text-main">
+          <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-black">C</span>
           Craftovo
         </Link>
         <p className="text-text-muted text-lg max-w-sm font-light">Designing digital products that shape the future of business.</p>
       </div>
       <div className="flex flex-col gap-4">
-        <h4 className="text-white font-medium mb-2 tracking-wide text-sm uppercase">Company</h4>
+        <h4 className="text-text-main font-medium mb-2 tracking-wide text-sm uppercase">Company</h4>
         {['Work', 'Services', 'Gigs', 'About', 'FAQ'].map(item => (
-          <Link key={item} href={`/${item.toLowerCase()}`} className="text-text-muted hover:text-white transition-colors font-light">{item}</Link>
+          <Link key={item} href={`/${item.toLowerCase()}`} className="text-text-muted hover:text-text-main transition-colors font-light">{item}</Link>
         ))}
       </div>
       <div className="flex flex-col gap-4">
-        <h4 className="text-white font-medium mb-2 tracking-wide text-sm uppercase">Connect</h4>
-        <Link href="/contact" className="text-text-muted hover:text-white transition-colors font-light">Contact Us</Link>
-        <a href="#" className="text-text-muted hover:text-white transition-colors font-light">Twitter</a>
-        <a href="#" className="text-text-muted hover:text-white transition-colors font-light">LinkedIn</a>
+        <h4 className="text-text-main font-medium mb-2 tracking-wide text-sm uppercase">Connect</h4>
+        <Link href="/contact" className="text-text-muted hover:text-text-main transition-colors font-light">Contact Us</Link>
+        <a href="#" className="text-text-muted hover:text-text-main transition-colors font-light">Twitter</a>
+        <a href="#" className="text-text-muted hover:text-text-main transition-colors font-light">LinkedIn</a>
       </div>
     </div>
     
-    <div className="max-w-[1280px] mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-text-muted text-sm gap-4 relative z-10 font-light">
+    <div className="max-w-[1280px] mx-auto border-t border-black/5 pt-8 flex flex-col md:flex-row justify-between items-center text-text-muted text-sm gap-4 relative z-10 font-light">
       <p>&copy; {new Date().getFullYear()} Craftovo Studio. All rights reserved.</p>
       <div className="flex gap-6">
-        <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-        <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+        <Link href="/privacy" className="hover:text-text-main transition-colors">Privacy Policy</Link>
+        <Link href="/terms" className="hover:text-text-main transition-colors">Terms of Service</Link>
       </div>
     </div>
 

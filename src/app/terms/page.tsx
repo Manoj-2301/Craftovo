@@ -6,7 +6,7 @@ export default function TermsPage() {
       
       <main className="flex-1 py-32 md:py-48">
         <Container>
-          <h1 className="font-outfit text-5xl font-medium text-white mb-8">Terms of Service</h1>
+          <h1 className="font-outfit text-5xl font-medium text-text-main mb-8">Terms of Service</h1>
           <p className="text-text-muted">Terms of service.</p>
         </Container>
       </main>

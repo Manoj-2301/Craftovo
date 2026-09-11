@@ -6,7 +6,7 @@ export default function PrivacyPage() {
       
       <main className="flex-1 py-32 md:py-48">
         <Container>
-          <h1 className="font-outfit text-5xl font-medium text-white mb-8">Privacy Policy</h1>
+          <h1 className="font-outfit text-5xl font-medium text-text-main mb-8">Privacy Policy</h1>
           <p className="text-text-muted">Privacy policy.</p>
         </Container>
       </main>
