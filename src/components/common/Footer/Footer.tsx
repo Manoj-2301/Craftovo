@@ -5,7 +5,7 @@ export const Footer = () => (
     <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24 relative z-10">
       <div className="md:col-span-2">
         <Link href="/" className="font-outfit font-bold text-2xl flex items-center gap-3 mb-6 text-text-main">
-          <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-black">C</span>
+          <span className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-lg shadow-blue-600/20">C</span>
           Craftovo
         </Link>
         <p className="text-text-muted text-lg max-w-sm font-light">Designing digital products that shape the future of business.</p>

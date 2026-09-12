@@ -25,7 +25,7 @@ export default function WorkPage() {
               {[
                 { title: "Fintech Dashboard", tags: "Web App • UI/UX • React", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
                 { title: "E-Commerce Storefront", tags: "E-commerce • Next.js • Stripe", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-                { title: "SaaS Marketing Site", tags: "Web Design • Framer Motion", img: "https://images.unsplash.com/photo-1481481833547-5d74f26b52a4?q=80&w=2081&auto=format&fit=crop" },
+                { title: "SaaS Marketing Site", tags: "Web Design • Framer Motion", img: "https://picsum.photos/seed/saas/1920/1080" },
                 { title: "Mobile Banking App", tags: "React Native • FinTech", img: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop" }
               ].map((item, i) => (
                 <AnimateIn key={i} delay={i * 0.1}>
