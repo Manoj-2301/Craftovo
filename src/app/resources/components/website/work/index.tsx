@@ -1,12 +1,15 @@
 /* React import */
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 
 /** Libraries */
 import Link from 'next/link';
 import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 
 /** Components */
 import Container from '@/Components/common/container';
+import CustomButton from '@/Components/common/custom-button';
 import AnimateIn from '@/Components/common/animate-in';
 import CTASection from '@/Components/common/cta-section';
 
@@ -16,7 +19,17 @@ import { projects } from '@/models/projects.data';
 /** Styles */
 import styles from './work.module.scss';
 
+const CATEGORIES = ['All', 'E-commerce', 'Web Application', 'Mobile App'];
+
 export const WorkView: React.FC = () => {
+  /** ---------- State & Hooks ---------- */
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  /** ---------- Handlers ---------- */
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
+    : projects.filter((p) => p.category === selectedCategory);
+
   /** ---------- Render ---------- */
   return (
     <div className={styles.workPageWrapper}>
@@ -34,10 +47,29 @@ export const WorkView: React.FC = () => {
 
           <Container>
             <AnimateIn>
-              <h1 className={styles.title}>Selected Work</h1>
+              <div className={styles.badgePill}>
+                <span>Selected Portfolio</span>
+              </div>
+              <h1 className={styles.title}>Crafted to Perform</h1>
               <p className={styles.leadText}>
-                A curated collection of our most impactful projects and digital products.
+                Explore case studies from our studio partnerships—spanning conversion-optimized storefronts, enterprise web apps, and native mobile apps.
               </p>
+            </AnimateIn>
+
+            {/* Filter Pills */}
+            <AnimateIn delay={0.15}>
+              <div className={styles.filterBar}>
+                {CATEGORIES.map((cat) => (
+                  <CustomButton
+                    key={cat}
+                    variant="unstyled"
+                    className={`${styles.filterPill} ${selectedCategory === cat ? styles.activeFilter : ''}`}
+                    onClick={() => setSelectedCategory(cat)}
+                  >
+                    {cat}
+                  </CustomButton>
+                ))}
+              </div>
             </AnimateIn>
           </Container>
         </section>
@@ -46,7 +78,7 @@ export const WorkView: React.FC = () => {
         <section className={styles.projectsGridSection}>
           <Container>
             <div className={styles.projectsGrid}>
-              {projects.map((project, index) => (
+              {filteredProjects.map((project, index) => (
                 <AnimateIn key={project.id} delay={index * 0.1}>
                   <Link href={`/work/${project.slug}`} className={styles.projectCardLink}>
                     <div className={styles.imageWrap}>
@@ -58,9 +90,27 @@ export const WorkView: React.FC = () => {
                         className={styles.projectImage}
                       />
                       <div className={styles.imageGradient} aria-hidden="true" />
+
+                      <div className={styles.cardFloatingHeader}>
+                        <span className={styles.categoryPill}>{project.category}</span>
+                        <div className={styles.arrowBadge}>
+                          <ArrowUpRight size={18} />
+                        </div>
+                      </div>
                     </div>
-                    <h3 className={styles.projectTitle}>{project.title}</h3>
-                    <p className={styles.projectDesc}>{project.description}</p>
+
+                    <div className={styles.projectMeta}>
+                      <h3 className={styles.projectTitle}>{project.title}</h3>
+                      <p className={styles.projectDesc}>{project.description}</p>
+
+                      <div className={styles.techPills}>
+                        {project.technologies.map((tech) => (
+                          <span key={tech} className={styles.techPill}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </Link>
                 </AnimateIn>
               ))}

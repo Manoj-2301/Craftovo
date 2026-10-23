@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 /** Libraries */
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -20,30 +21,61 @@ export const Navbar: React.FC = () => {
   /** ---------- State & Hooks ---------- */
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   /** ---------- Effects ---------- */
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close drawer on ESC key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  // Close drawer on path change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  const isLinkActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  };
 
   /** ---------- Render ---------- */
   return (
     <header className={styles.header}>
       <div className={`${styles.navContainer} ${scrolled ? styles.scrolled : ''}`}>
-        <Link href="/" className={styles.logo}>
+        <Link href="/" className={styles.logo} aria-label={`${siteConfig.name} Home`}>
           <span className={styles.logoBadge}>C</span>
           {siteConfig.name}
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className={styles.desktopNav}>
-          {siteConfig.navLinks.map((item) => (
-            <Link key={item.name} href={item.href} className={styles.navLink}>
-              {item.name}
-            </Link>
-          ))}
+        <nav className={styles.desktopNav} aria-label="Main Navigation">
+          {siteConfig.navLinks.map((item) => {
+            const active = isLinkActive(item.href);
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`${styles.navLink} ${active ? styles.active : ''}`}
+                aria-current={active ? 'page' : undefined}
+              >
+                {active && <span className={styles.activeDot} aria-hidden="true" />}
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop Action */}
@@ -58,6 +90,7 @@ export const Navbar: React.FC = () => {
           <CustomButton
             variant="unstyled"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}

@@ -69,19 +69,22 @@ export const Testimonials: React.FC = () => {
       <div className={styles.ambientGlow} aria-hidden="true" />
       <Container>
         <div className={styles.headerRow}>
-          <SectionHeading
-            badge="Client Love"
-            title="What they say."
-            description="Don't just take our word for it. Hear from visionary leaders and teams we've partnered with."
-          />
-          <AnimateIn delay={0.2} className={styles.carouselControls}>
+          <div className={styles.headingCol}>
+            <SectionHeading
+              badge="Client Love"
+              title="What they say."
+              description="Don't just take our word for it. Hear from visionary leaders and teams we've partnered with."
+              className={styles.testimonialsHeading}
+            />
+          </div>
+          <div className={styles.carouselControls}>
             <CustomButton
               variant="unstyled"
               className={styles.controlButton}
               onClick={scrollPrev}
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={22} />
+              <ChevronLeft size={20} />
             </CustomButton>
             <CustomButton
               variant="unstyled"
@@ -89,9 +92,9 @@ export const Testimonials: React.FC = () => {
               onClick={scrollNext}
               aria-label="Next testimonial"
             >
-              <ChevronRight size={22} />
+              <ChevronRight size={20} />
             </CustomButton>
-          </AnimateIn>
+          </div>
         </div>
 
         <AnimateIn delay={0.3}>
@@ -113,7 +116,7 @@ export const Testimonials: React.FC = () => {
                           alt={item.author}
                           fill
                           sizes="52px"
-                          style={{ objectFit: 'cover' }}
+                          className={styles.avatarImg}
                         />
                       </div>
                       <div>

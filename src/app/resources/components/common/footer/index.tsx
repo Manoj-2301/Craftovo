@@ -26,6 +26,10 @@ export const Footer: React.FC = () => {
           <p className={styles.brandTagline}>
             Designing and engineering digital products that shape the future of business.
           </p>
+          <div className={styles.statusPill}>
+            <span className={styles.liveDot} aria-hidden="true" />
+            <span>Available for Q1/Q2 Projects</span>
+          </div>
         </div>
 
         {/* Company Links */}

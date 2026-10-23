@@ -9,22 +9,22 @@
 .heroSection {
   position: relative;
   padding-top: spacing(16);
-  padding-bottom: spacing(12);
+  padding-bottom: spacing(10);
   overflow: hidden;
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   @include mobile {
     padding-top: spacing(12);
-    padding-bottom: spacing(8);
+    padding-bottom: spacing(6);
   }
 }
 
 .heroBgImage {
   object-fit: cover;
-  opacity: 0.1;
+  opacity: 0.08;
   pointer-events: none;
   filter: grayscale(100%);
   mix-blend-mode: luminosity;
@@ -35,6 +35,11 @@
   inset: 0;
   background: linear-gradient(to bottom, colormap(bg-main), transparent 40%, colormap(bg-main));
   pointer-events: none;
+}
+
+.badgePill {
+  @include badge-pill;
+  margin-bottom: spacing(4);
 }
 
 .title {
@@ -49,21 +54,53 @@
 .leadText {
   font-size: get-font-size(xl);
   color: colormap(text-muted);
-  max-width: 700px;
+  max-width: 760px;
   line-height: 1.6;
   font-weight: 300;
+  margin-bottom: spacing(8);
 
   @include mobile {
     font-size: get-font-size(base);
+    margin-bottom: spacing(6);
+  }
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(3);
+}
+
+.filterPill {
+  padding: spacing(2) spacing(5);
+  border-radius: radius(full);
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  background-color: colormap(surface-soft);
+  border: 1px solid colormap(border-subtle);
+  color: colormap(text-muted);
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: colormap(text-main);
+    border-color: colormap(border-strong);
+    background-color: colormap(white);
+  }
+
+  &.activeFilter {
+    background-color: colormap(text-main);
+    border-color: colormap(text-main);
+    color: colormap(white);
   }
 }
 
 .projectsGridSection {
-  padding-top: spacing(12);
+  padding-top: spacing(8);
   padding-bottom: spacing(16);
 
   @include mobile {
-    padding-top: spacing(8);
+    padding-top: spacing(4);
     padding-bottom: spacing(10);
   }
 }
@@ -88,11 +125,19 @@
     .imageWrap {
       border-color: colormap(border-strong);
       box-shadow: shadow(xl);
+      transform: translateY(-4px);
     }
 
     .projectImage {
-      opacity: 1;
-      transform: scale(1.05);
+      opacity: 0.95;
+      transform: scale(1.04);
+    }
+
+    .arrowBadge {
+      background-color: colormap(primary);
+      color: colormap(white);
+      border-color: colormap(primary);
+      transform: scale(1.08);
     }
 
     .projectTitle {
@@ -108,7 +153,7 @@
   margin-bottom: spacing(6);
   overflow: hidden;
   position: relative;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   @include mobile {
     height: 280px;
@@ -118,7 +163,7 @@
 
 .projectImage {
   object-fit: cover;
-  opacity: 0.65;
+  opacity: 0.75;
   transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
 }
@@ -126,17 +171,64 @@
 .imageGradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, colormap(bg-main), rgba(244, 244, 246, 0.4) 40%, transparent);
-  opacity: 0.8;
-  z-index: 10;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
   pointer-events: none;
+}
+
+.cardFloatingHeader {
+  position: absolute;
+  top: spacing(6);
+  left: spacing(6);
+  right: spacing(6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+
+  @include mobile {
+    top: spacing(4);
+    left: spacing(4);
+    right: spacing(4);
+  }
+}
+
+.categoryPill {
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  padding: spacing(1) spacing(3);
+  border-radius: radius(full);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  color: colormap(text-main);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: shadow(sm);
+}
+
+.arrowBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: radius(full);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  color: colormap(text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: shadow(sm);
+  transition: all 0.3s ease;
+}
+
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
 }
 
 .projectTitle {
   font-family: var(--font-display), sans-serif;
   font-size: get-font-size(2xl);
   font-weight: 500;
-  margin-bottom: spacing(2);
   color: colormap(text-main);
   transition: color 0.2s ease;
 }
@@ -146,4 +238,20 @@
   font-weight: 300;
   font-size: get-font-size(base);
   line-height: 1.5;
+}
+
+.techPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(2);
+  margin-top: spacing(2);
+}
+
+.techPill {
+  font-size: get-font-size(xs);
+  font-weight: 500;
+  padding: spacing(1) spacing(2);
+  border-radius: radius(sm);
+  background-color: rgba(0, 0, 0, 0.04);
+  color: colormap(text-muted);
 }

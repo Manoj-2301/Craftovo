@@ -11,7 +11,7 @@
   padding-top: spacing(16);
   padding-bottom: spacing(12);
   overflow: hidden;
-  min-height: 50vh;
+  min-height: 48vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
 
 .heroBgImage {
   object-fit: cover;
-  opacity: 0.1;
+  opacity: 0.08;
   pointer-events: none;
   filter: grayscale(100%);
   mix-blend-mode: luminosity;
@@ -35,6 +35,11 @@
   inset: 0;
   background: linear-gradient(to bottom, colormap(bg-main), transparent 40%, colormap(bg-main));
   pointer-events: none;
+}
+
+.badgePill {
+  @include badge-pill;
+  margin-bottom: spacing(4);
 }
 
 .title {
@@ -49,7 +54,7 @@
 .leadText {
   font-size: get-font-size(xl);
   color: colormap(text-muted);
-  max-width: 700px;
+  max-width: 760px;
   line-height: 1.6;
   font-weight: 300;
 
@@ -59,11 +64,11 @@
 }
 
 .servicesGridSection {
-  padding-top: spacing(12);
+  padding-top: spacing(8);
   padding-bottom: spacing(16);
 
   @include mobile {
-    padding-top: spacing(8);
+    padding-top: spacing(4);
     padding-bottom: spacing(10);
   }
 }
@@ -71,7 +76,7 @@
 .servicesGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: spacing(6);
+  gap: spacing(8);
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
@@ -84,63 +89,199 @@
 
 .serviceCard {
   @include glass-panel;
+  @include card-hover-elevate;
   border-radius: radius(2xl);
   padding: spacing(8);
-  position: relative;
-  overflow: hidden;
-  min-height: 360px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  transition: all 0.4s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: colormap(border-strong);
-    box-shadow: shadow(xl);
-
-    .serviceBgImage {
-      opacity: 0.4;
-      transform: scale(1.05);
-    }
-  }
+  justify-content: space-between;
+  min-height: 420px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.7);
 
   @include mobile {
-    min-height: 300px;
     padding: spacing(6);
   }
 }
 
-.serviceBgImage {
-  object-fit: cover;
-  opacity: 0.18;
-  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  pointer-events: none;
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
 }
 
-.cardGradientOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, colormap(bg-main), rgba(244, 244, 246, 0.65) 50%, transparent);
-  pointer-events: none;
-}
-
-.cardContent {
-  position: relative;
-  z-index: 10;
+.categoryBadge {
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: colormap(primary);
 }
 
 .cardTitle {
   font-family: var(--font-display), sans-serif;
-  font-size: get-font-size(2xl);
+  font-size: get-font-size(xl);
   font-weight: 500;
-  margin-bottom: spacing(3);
   color: colormap(text-main);
+  line-height: 1.2;
 }
 
 .cardDesc {
   color: colormap(text-muted);
   font-weight: 300;
-  font-size: get-font-size(base);
-  line-height: 1.5;
+  font-size: get-font-size(sm);
+  line-height: 1.6;
+}
+
+.featuresBlock {
+  margin-top: spacing(6);
+  margin-bottom: spacing(6);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+  padding-top: spacing(4);
+  border-top: 1px solid colormap(border-subtle);
+}
+
+.featuresTitle {
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: colormap(text-main);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+  font-size: get-font-size(sm);
+  color: colormap(text-secondary);
+  font-weight: 400;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: radius(full);
+  background-color: rgba(16, 185, 129, 0.12);
+  color: colormap(success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.techBlock {
+  margin-bottom: spacing(6);
+}
+
+.techPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(2);
+}
+
+.techPill {
+  font-size: get-font-size(xs);
+  font-weight: 500;
+  padding: spacing(1) spacing(2);
+  border-radius: radius(sm);
+  background-color: rgba(0, 0, 0, 0.04);
+  color: colormap(text-muted);
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+// Process Section
+.processSection {
+  padding-top: spacing(16);
+  padding-bottom: spacing(16);
+  border-top: 1px solid colormap(border-subtle);
+  background: rgba(255, 255, 255, 0.25);
+
+  @include mobile {
+    padding-top: spacing(10);
+    padding-bottom: spacing(10);
+  }
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: spacing(6);
+  margin-top: spacing(10);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.processCard {
+  @include glass-panel;
+  border-radius: radius(2xl);
+  padding: spacing(8);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: shadow(lg);
+  }
+}
+
+.processTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepNumber {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: colormap(primary);
+}
+
+.processIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: radius(full);
+  background-color: rgba(47, 76, 255, 0.08);
+  color: colormap(primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.processTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(lg);
+  font-weight: 500;
+  color: colormap(text-main);
+}
+
+.processDesc {
+  font-size: get-font-size(sm);
+  color: colormap(text-muted);
+  line-height: 1.6;
+  font-weight: 300;
 }

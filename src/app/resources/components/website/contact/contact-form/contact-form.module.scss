@@ -49,11 +49,19 @@
 }
 
 .successMessage {
-  padding: spacing(4);
+  padding: spacing(4) spacing(6);
   border-radius: radius(md);
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(16, 185, 129, 0.12);
   border: 1px solid colormap(success);
   color: colormap(success);
   font-size: get-font-size(sm);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: spacing(3);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.successIcon {
+  flex-shrink: 0;
 }

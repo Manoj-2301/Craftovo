@@ -18,27 +18,37 @@
   }
 }
 
+.backButtonWrap {
+  margin-bottom: spacing(6);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(2);
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  color: colormap(text-muted);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: colormap(text-main);
+  }
+}
+
 .headerContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 800px;
+  max-width: 860px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: spacing(12);
+  margin-bottom: spacing(10);
 }
 
 .categoryBadge {
-  display: inline-block;
-  padding: spacing(2) spacing(4);
-  border-radius: radius(full);
-  @include glass-panel;
-  font-size: get-font-size(xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: colormap(text-muted);
+  @include badge-pill;
   margin-bottom: spacing(4);
 }
 
@@ -48,6 +58,18 @@
   font-weight: 500;
   color: colormap(text-main);
   letter-spacing: -0.02em;
+  margin-bottom: spacing(4);
+}
+
+.projectSubtitle {
+  font-size: get-font-size(xl);
+  color: colormap(text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
 }
 
 .heroImageWrap {
@@ -68,8 +90,80 @@
   object-fit: cover;
 }
 
+.highlightsBar {
+  margin-top: spacing(10);
+  @include glass-panel;
+  border-radius: radius(2xl);
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: spacing(6) spacing(8);
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.highlightCol {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+  padding: spacing(4) 0;
+  border-bottom: 1px solid colormap(border-subtle);
+
+  @include tablet {
+    border-bottom: none;
+    border-right: 1px solid colormap(border-subtle);
+    padding: 0 spacing(6);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  @include desktop {
+    border-bottom: none;
+    border-right: 1px solid colormap(border-subtle);
+    padding: 0 spacing(6);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.highlightValue {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(2xl);
+  font-weight: 700;
+  color: colormap(primary);
+}
+
+.highlightLabel {
+  font-size: get-font-size(sm);
+  font-weight: 600;
+  color: colormap(text-main);
+}
+
+.highlightDesc {
+  font-size: get-font-size(xs);
+  color: colormap(text-muted);
+  font-weight: 300;
+}
+
 .detailsSection {
-  padding-top: spacing(12);
+  padding-top: spacing(8);
   padding-bottom: spacing(16);
 }
 
@@ -96,7 +190,7 @@
   font-family: var(--font-display), sans-serif;
   font-size: get-font-size(2xl);
   font-weight: 500;
-  margin-bottom: spacing(6);
+  margin-bottom: spacing(4);
   color: colormap(text-main);
 }
 
@@ -105,10 +199,52 @@
   color: colormap(text-muted);
   line-height: 1.7;
   font-weight: 300;
+  margin-bottom: spacing(8);
 
   @include mobile {
     font-size: get-font-size(base);
   }
+}
+
+.keyDeliverables {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(4);
+  padding: spacing(8);
+  border-radius: radius(2xl);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid colormap(border-subtle);
+}
+
+.deliverablesTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(lg);
+  font-weight: 600;
+  color: colormap(text-main);
+}
+
+.deliverablesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+}
+
+.deliverableItem {
+  display: flex;
+  align-items: flex-start;
+  gap: spacing(3);
+  font-size: get-font-size(sm);
+  color: colormap(text-secondary);
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: colormap(success);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .techCol {
@@ -123,13 +259,15 @@
   @include glass-panel;
   padding: spacing(8);
   border-radius: radius(2xl);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
 }
 
 .techCardTitle {
   font-family: var(--font-display), sans-serif;
   font-size: get-font-size(xl);
   font-weight: 500;
-  margin-bottom: spacing(4);
   color: colormap(text-main);
   border-bottom: 1px solid colormap(border-subtle);
   padding-bottom: spacing(3);
@@ -142,10 +280,37 @@
 }
 
 .techBadge {
-  padding: spacing(2) spacing(4);
+  padding: spacing(1) spacing(3);
   border-radius: radius(full);
   background-color: rgba(0, 0, 0, 0.04);
   color: colormap(text-muted);
   font-size: get-font-size(sm);
+  font-weight: 500;
   border: 1px solid colormap(border-subtle);
+}
+
+.partnerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+  padding-top: spacing(4);
+  border-top: 1px solid colormap(border-subtle);
+}
+
+.partnerLabel {
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: colormap(primary);
+}
+
+.partnerValue {
+  font-size: get-font-size(sm);
+  color: colormap(text-secondary);
+  line-height: 1.5;
+}
+
+.cardAction {
+  margin-top: spacing(2);
 }

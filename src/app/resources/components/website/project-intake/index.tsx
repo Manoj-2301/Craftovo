@@ -245,17 +245,21 @@ export const ProjectIntakeView: React.FC = () => {
                       <div className={styles.optionGroup}>
                         <span className={styles.groupLabel}>Project Type</span>
                         <div className={styles.optionsGrid}>
-                          {PROJECT_TYPES.map((type) => (
-                            <CustomButton
-                              key={type}
-                              type="button"
-                              variant="unstyled"
-                              className={`${styles.optionPill} ${selectedProjectType === type ? styles.selected : ''}`}
-                              onClick={() => setValue('projectType', type)}
-                            >
-                              {type}
-                            </CustomButton>
-                          ))}
+                          {PROJECT_TYPES.map((type) => {
+                            const isSelected = selectedProjectType === type;
+                            return (
+                              <CustomButton
+                                key={type}
+                                type="button"
+                                variant="unstyled"
+                                className={`${styles.optionPill} ${isSelected ? styles.selected : ''}`}
+                                onClick={() => setValue('projectType', type)}
+                              >
+                                {isSelected && <Check size={14} className={styles.pillCheck} />}
+                                {type}
+                              </CustomButton>
+                            );
+                          })}
                         </div>
                       </div>
                       <CustomInputNew
@@ -288,17 +292,21 @@ export const ProjectIntakeView: React.FC = () => {
                       <div className={styles.optionGroup}>
                         <span className={styles.groupLabel}>Primary Device Usage</span>
                         <div className={styles.optionsGrid}>
-                          {DEVICE_OPTIONS.map((dev) => (
-                            <CustomButton
-                              key={dev}
-                              type="button"
-                              variant="unstyled"
-                              className={`${styles.optionPill} ${selectedDevice === dev ? styles.selected : ''}`}
-                              onClick={() => setValue('primaryDevice', dev)}
-                            >
-                              {dev}
-                            </CustomButton>
-                          ))}
+                          {DEVICE_OPTIONS.map((dev) => {
+                            const isSelected = selectedDevice === dev;
+                            return (
+                              <CustomButton
+                                key={dev}
+                                type="button"
+                                variant="unstyled"
+                                className={`${styles.optionPill} ${isSelected ? styles.selected : ''}`}
+                                onClick={() => setValue('primaryDevice', dev)}
+                              >
+                                {isSelected && <Check size={14} className={styles.pillCheck} />}
+                                {dev}
+                              </CustomButton>
+                            );
+                          })}
                         </div>
                       </div>
                       <CustomInputNew
@@ -325,34 +333,42 @@ export const ProjectIntakeView: React.FC = () => {
                       <div className={styles.optionGroup}>
                         <span className={styles.groupLabel}>Key Pages Needed</span>
                         <div className={styles.optionsGrid}>
-                          {PAGES_OPTIONS.map((page) => (
-                            <CustomButton
-                              key={page}
-                              type="button"
-                              variant="unstyled"
-                              className={`${styles.optionPill} ${selectedPages.includes(page) ? styles.selected : ''}`}
-                              onClick={() => handleTogglePage(page)}
-                            >
-                              {page}
-                            </CustomButton>
-                          ))}
+                          {PAGES_OPTIONS.map((page) => {
+                            const isSelected = selectedPages.includes(page);
+                            return (
+                              <CustomButton
+                                key={page}
+                                type="button"
+                                variant="unstyled"
+                                className={`${styles.optionPill} ${isSelected ? styles.selected : ''}`}
+                                onClick={() => handleTogglePage(page)}
+                              >
+                                {isSelected && <Check size={14} className={styles.pillCheck} />}
+                                {page}
+                              </CustomButton>
+                            );
+                          })}
                         </div>
                       </div>
 
                       <div className={styles.optionGroup}>
                         <span className={styles.groupLabel}>Dynamic Features</span>
                         <div className={styles.optionsGrid}>
-                          {FEATURE_OPTIONS.map((feat) => (
-                            <CustomButton
-                              key={feat}
-                              type="button"
-                              variant="unstyled"
-                              className={`${styles.optionPill} ${selectedFeatures.includes(feat) ? styles.selected : ''}`}
-                              onClick={() => handleToggleFeature(feat)}
-                            >
-                              {feat}
-                            </CustomButton>
-                          ))}
+                          {FEATURE_OPTIONS.map((feat) => {
+                            const isSelected = selectedFeatures.includes(feat);
+                            return (
+                              <CustomButton
+                                key={feat}
+                                type="button"
+                                variant="unstyled"
+                                className={`${styles.optionPill} ${isSelected ? styles.selected : ''}`}
+                                onClick={() => handleToggleFeature(feat)}
+                              >
+                                {isSelected && <Check size={14} className={styles.pillCheck} />}
+                                {feat}
+                              </CustomButton>
+                            );
+                          })}
                         </div>
                       </div>
                     </>

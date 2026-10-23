@@ -12,11 +12,6 @@
   padding-bottom: spacing(16);
   overflow: hidden;
 
-  @include desktop {
-    padding-top: spacing(16);
-    padding-bottom: spacing(16);
-  }
-
   @include mobile {
     padding-top: spacing(12);
     padding-bottom: spacing(10);
@@ -25,7 +20,7 @@
 
 .heroBgImage {
   object-fit: cover;
-  opacity: 0.1;
+  opacity: 0.08;
   pointer-events: none;
   filter: grayscale(100%);
   mix-blend-mode: luminosity;
@@ -52,11 +47,19 @@
 }
 
 .formContainer {
-  max-width: 720px;
+  max-width: 780px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgePill {
+  @include badge-pill;
+  margin-bottom: spacing(4);
 }
 
 .title {
@@ -73,12 +76,118 @@
   font-size: get-font-size(xl);
   color: colormap(text-muted);
   text-align: center;
-  margin-bottom: spacing(12);
+  margin-bottom: spacing(8);
   line-height: 1.6;
   font-weight: 300;
+  max-width: 640px;
 
   @include mobile {
     font-size: get-font-size(base);
-    margin-bottom: spacing(8);
+    margin-bottom: spacing(6);
   }
+}
+
+.intakeCard {
+  @include glass-panel;
+  border-radius: radius(2xl);
+  padding: spacing(5) spacing(6);
+  margin-bottom: spacing(8);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing(4);
+  border: 1px dashed rgba(47, 76, 255, 0.35);
+  background: rgba(47, 76, 255, 0.03);
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.intakeTitle {
+  font-size: get-font-size(base);
+  font-weight: 600;
+  color: colormap(text-main);
+  margin-bottom: spacing(1);
+}
+
+.intakeDesc {
+  font-size: get-font-size(xs);
+  color: colormap(text-muted);
+  font-weight: 400;
+}
+
+.intakeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(1);
+  font-size: get-font-size(sm);
+  font-weight: 600;
+  color: colormap(primary);
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.perksRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: spacing(4);
+  width: 100%;
+  margin-top: spacing(10);
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.perkCard {
+  @include glass-panel;
+  padding: spacing(6);
+  border-radius: radius(xl);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.perkIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: radius(full);
+  background-color: rgba(47, 76, 255, 0.08);
+  color: colormap(primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: spacing(1);
+}
+
+.perkTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(sm);
+  font-weight: 600;
+  color: colormap(text-main);
+}
+
+.perkValue {
+  font-size: get-font-size(sm);
+  font-weight: 600;
+  color: colormap(primary);
+}
+
+.perkDesc {
+  font-size: get-font-size(xs);
+  color: colormap(text-muted);
+  line-height: 1.5;
+  font-weight: 300;
 }

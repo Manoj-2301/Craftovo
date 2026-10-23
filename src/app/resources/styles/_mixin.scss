@@ -9,11 +9,11 @@ $colors: (
   surface-dark: #0B0B0E,
   surface-dark-card: #050505,
   
-  text-main: #0B0B0E,
-  text-secondary: #5E5E6A,
-  text-muted: #7E7E8B,
+  text-main: #09090B,
+  text-secondary: #475569,
+  text-muted: #64748B,
   text-light: #FFFFFF,
-  text-light-muted: #A0A0A0,
+  text-light-muted: #94A3B8,
   
   border-subtle: rgba(0, 0, 0, 0.05),
   border-strong: rgba(0, 0, 0, 0.12),
@@ -79,6 +79,8 @@ $spacings: (
   10: 4rem,
   "12": 5rem,        // 80px
   12: 5rem,
+  "14": 5.5rem,      // 88px
+  14: 5.5rem,
   "16": 6rem,        // 96px
   16: 6rem,
   xs: 0.25rem,
@@ -228,3 +230,29 @@ $shadows: (
     outline-offset: 3px;
   }
 }
+
+@mixin badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(2);
+  padding: spacing(1) spacing(3);
+  border-radius: radius(full);
+  font-size: get-font-size(xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background-color: rgba(47, 76, 255, 0.08);
+  color: colormap(primary);
+  border: 1px solid rgba(47, 76, 255, 0.15);
+}
+
+@mixin card-hover-elevate {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: shadow(xl);
+    border-color: colormap(border-strong);
+  }
+}
+

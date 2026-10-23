@@ -68,11 +68,40 @@
 }
 
 .brandTagline {
-  color: colormap(text-muted);
+  color: colormap(text-secondary);
   font-size: get-font-size(base);
   max-width: 340px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
+  margin-bottom: spacing(4);
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(2);
+  padding: spacing(1) spacing(3);
+  background: colormap(surface-soft);
+  border: 1px solid colormap(border-subtle);
+  border-radius: radius(full);
+  font-size: get-font-size(xs);
+  color: colormap(text-main);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: radius(full);
+  background-color: colormap(success);
+  box-shadow: 0 0 8px colormap(success);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
 }
 
 .linkGroup {

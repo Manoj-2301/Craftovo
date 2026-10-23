@@ -3,45 +3,45 @@ import React from 'react';
 
 /** Libraries */
 import Image from 'next/image';
+import { Check, ArrowRight, Layers, Cpu, Sparkles, ShieldCheck } from 'lucide-react';
 
 /** Components */
 import Container from '@/Components/common/container';
+import CustomButton from '@/Components/common/custom-button';
+import SectionHeading from '@/Components/common/section-heading';
 import AnimateIn from '@/Components/common/animate-in';
 import CTASection from '@/Components/common/cta-section';
+
+/** Local Imports */
+import { services } from '@/models/services.data';
 
 /** Styles */
 import styles from './services.module.scss';
 
-const SERVICES_LIST = [
+const PROCESS_STEPS = [
   {
-    title: 'Web Development',
-    desc: 'Fast, secure, and scalable websites built with modern technologies.',
-    img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop',
+    step: '01',
+    icon: Layers,
+    title: 'Architecture & Strategy',
+    description: 'We analyze your objectives, map user journeys, and establish scalable technical and design foundations.',
   },
   {
-    title: 'Web Applications',
-    desc: 'Complex web apps with robust backends and intuitive frontends.',
-    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+    step: '02',
+    icon: Sparkles,
+    title: 'High-Craft Design',
+    description: 'Design systems, micro-interactions, and responsive prototypes built to convert and captivate users.',
   },
   {
-    title: 'Mobile Apps',
-    desc: 'Native and cross-platform mobile applications for iOS and Android.',
-    img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop',
+    step: '03',
+    icon: Cpu,
+    title: 'Institutional Engineering',
+    description: 'Clean Next.js App Router code, robust API architecture, and automated end-to-end performance testing.',
   },
   {
-    title: 'UI/UX Design',
-    desc: 'User-centered design that looks beautiful and drives conversions.',
-    img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop',
-  },
-  {
-    title: 'E-commerce Solutions',
-    desc: 'Custom online stores optimized for sales, performance, and international scale.',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
-  },
-  {
-    title: 'Custom Software',
-    desc: 'Bespoke software tailored perfectly to your business processes and internal workflows.',
-    img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop',
+    step: '04',
+    icon: ShieldCheck,
+    title: 'Deployment & Scaling',
+    description: 'Global edge deployment, sub-second LCP optimization, comprehensive SEO, and ongoing partner support.',
   },
 ];
 
@@ -63,9 +63,12 @@ export const ServicesView: React.FC = () => {
 
           <Container>
             <AnimateIn>
-              <h1 className={styles.title}>Our Services</h1>
+              <div className={styles.badgePill}>
+                <span>What We Do</span>
+              </div>
+              <h1 className={styles.title}>Bespoke Digital Services</h1>
               <p className={styles.leadText}>
-                Comprehensive digital solutions tailored to elevate your business in the modern landscape.
+                We combine high-end product design with institutional-grade full-stack engineering to build digital products that scale effortlessly.
               </p>
             </AnimateIn>
           </Container>
@@ -75,24 +78,83 @@ export const ServicesView: React.FC = () => {
         <section className={styles.servicesGridSection}>
           <Container>
             <div className={styles.servicesGrid}>
-              {SERVICES_LIST.map((service, index) => (
-                <AnimateIn key={service.title} delay={index * 0.1}>
+              {services.map((service, index) => (
+                <AnimateIn key={service.id} delay={index * 0.08}>
                   <div className={styles.serviceCard}>
-                    <Image
-                      src={service.img}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className={styles.serviceBgImage}
-                    />
-                    <div className={styles.cardGradientOverlay} aria-hidden="true" />
-                    <div className={styles.cardContent}>
+                    <div className={styles.cardHeader}>
+                      <span className={styles.categoryBadge}>{service.title}</span>
                       <h3 className={styles.cardTitle}>{service.title}</h3>
-                      <p className={styles.cardDesc}>{service.desc}</p>
+                      <p className={styles.cardDesc}>{service.description}</p>
+                    </div>
+
+                    <div className={styles.featuresBlock}>
+                      <span className={styles.featuresTitle}>Key Capabilities</span>
+                      <ul className={styles.featuresList}>
+                        {service.features.map((feature, fIdx) => (
+                          <li key={fIdx} className={styles.featureItem}>
+                            <div className={styles.checkIcon}>
+                              <Check size={13} />
+                            </div>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className={styles.techBlock}>
+                      <div className={styles.techPills}>
+                        {service.technologies.map((tech) => (
+                          <span key={tech} className={styles.techPill}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className={styles.cardFooter}>
+                      <CustomButton
+                        href={`/project-intake`}
+                        variant="secondary"
+                        fullWidth
+                      >
+                        Start this service <ArrowRight size={14} />
+                      </CustomButton>
                     </div>
                   </div>
                 </AnimateIn>
               ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Process Section */}
+        <section className={styles.processSection}>
+          <Container>
+            <SectionHeading
+              badge="How We Build"
+              title="Our Delivery Framework"
+              description="A disciplined, four-phase sprint cadence that guarantees quality, transparency, and rapid time-to-market."
+              align="center"
+            />
+
+            <div className={styles.processGrid}>
+              {PROCESS_STEPS.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <AnimateIn key={item.step} delay={idx * 0.1}>
+                    <div className={styles.processCard}>
+                      <div className={styles.processTop}>
+                        <span className={styles.stepNumber}>{item.step}</span>
+                        <div className={styles.processIconWrap}>
+                          <IconComponent size={20} />
+                        </div>
+                      </div>
+                      <h3 className={styles.processTitle}>{item.title}</h3>
+                      <p className={styles.processDesc}>{item.description}</p>
+                    </div>
+                  </AnimateIn>
+                );
+              })}
             </div>
           </Container>
         </section>

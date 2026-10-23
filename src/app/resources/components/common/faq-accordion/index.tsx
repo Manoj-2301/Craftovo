@@ -59,7 +59,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-                  style={{ overflow: 'hidden' }}
+                  className={styles.motionWrap}
                 >
                   <div className={styles.answerContent}>
                     {faq.answer}

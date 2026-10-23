@@ -60,6 +60,33 @@ input, textarea, select {
   color: colormap(white);
 }
 
+.mainWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+// Custom modern subtle scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: colormap(bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: radius(full);
+  border: 2px solid colormap(bg-main);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.28);
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -82,3 +109,4 @@ input, textarea, select {
     scroll-behavior: auto !important;
   }
 }
+

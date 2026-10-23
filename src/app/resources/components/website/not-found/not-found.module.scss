@@ -1,0 +1,83 @@
+@use "@/styles/_mixin.scss" as *;
+
+.notFoundWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+  padding-top: spacing(16);
+  padding-bottom: spacing(16);
+}
+
+.main {
+  width: 100%;
+}
+
+.card {
+  @include glass-panel;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: spacing(16);
+  border-radius: radius(3xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing(4);
+
+  @include mobile {
+    padding: spacing(8);
+    border-radius: radius(2xl);
+  }
+}
+
+.iconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: radius(full);
+  background: rgba(47, 76, 255, 0.08);
+  color: colormap(primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: spacing(2);
+}
+
+.errorCode {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: colormap(text-main);
+  opacity: 0.15;
+  letter-spacing: -0.05em;
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  color: colormap(text-main);
+  line-height: 1.2;
+}
+
+.desc {
+  font-size: get-font-size(base);
+  color: colormap(text-muted);
+  line-height: 1.6;
+  max-width: 480px;
+  font-weight: 300;
+  margin-bottom: spacing(4);
+}
+
+.actions {
+  display: flex;
+  gap: spacing(4);
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+}

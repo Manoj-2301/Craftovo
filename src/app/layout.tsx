@@ -46,7 +46,7 @@ export default function RootLayout({
       <head />
       <body suppressHydrationWarning>
         <Navbar />
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div className="mainWrapper">
           {children}
         </div>
         <Footer />

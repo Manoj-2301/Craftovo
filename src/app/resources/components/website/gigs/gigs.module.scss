@@ -9,13 +9,18 @@
 .heroSection {
   position: relative;
   padding-top: spacing(16);
-  padding-bottom: spacing(12);
+  padding-bottom: spacing(10);
   overflow: hidden;
 
   @include mobile {
     padding-top: spacing(12);
-    padding-bottom: spacing(8);
+    padding-bottom: spacing(6);
   }
+}
+
+.badgePill {
+  @include badge-pill;
+  margin-bottom: spacing(4);
 }
 
 .title {
@@ -30,7 +35,7 @@
 .leadText {
   font-size: get-font-size(xl);
   color: colormap(text-muted);
-  max-width: 700px;
+  max-width: 760px;
   line-height: 1.6;
   font-weight: 300;
 
@@ -40,11 +45,11 @@
 }
 
 .gigsGridSection {
-  padding-top: spacing(10);
+  padding-top: spacing(6);
   padding-bottom: spacing(16);
 
   @include mobile {
-    padding-top: spacing(6);
+    padding-top: spacing(4);
     padding-bottom: spacing(10);
   }
 }
@@ -65,58 +70,159 @@
 
 .gigCard {
   @include glass-panel;
+  @include card-hover-elevate;
   border-radius: radius(2xl);
   padding: spacing(8);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  transition: all 0.35s ease;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.7);
 
-  &:hover {
-    transform: translateY(-4px);
-    border-color: colormap(border-strong);
-    box-shadow: shadow(xl);
+  &.featuredCard {
+    border-color: rgba(47, 76, 255, 0.35);
+    box-shadow: 0 12px 36px -10px rgba(47, 76, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }
 
+.featuredBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: colormap(primary);
+  color: colormap(white);
+  padding: spacing(1) spacing(3);
+  border-radius: radius(full);
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(1);
+  box-shadow: shadow(primary);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  margin-bottom: spacing(6);
+}
+
 .category {
-  font-size: get-font-size(sm);
-  font-weight: 500;
-  color: colormap(text-muted);
-  margin-bottom: spacing(3);
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: colormap(primary);
 }
 
 .gigTitle {
   font-family: var(--font-display), sans-serif;
   font-size: get-font-size(2xl);
   font-weight: 500;
-  margin-bottom: spacing(4);
   color: colormap(text-main);
-}
-
-.priceRow {
-  font-family: var(--font-display), sans-serif;
-  font-size: get-font-size(2xl);
-  color: colormap(text-main);
-  font-weight: 500;
-  margin-bottom: spacing(6);
-  padding-bottom: spacing(6);
-  border-bottom: 1px solid colormap(border-subtle);
-  letter-spacing: -0.02em;
-
-  span {
-    font-size: get-font-size(sm);
-    color: colormap(text-muted);
-    font-weight: 300;
-    letter-spacing: normal;
-  }
 }
 
 .description {
   color: colormap(text-muted);
-  margin-bottom: spacing(8);
-  flex: 1;
   line-height: 1.6;
   font-weight: 300;
-  font-size: get-font-size(base);
+  font-size: get-font-size(sm);
+}
+
+.priceRow {
+  margin-bottom: spacing(4);
+  padding-bottom: spacing(4);
+  border-bottom: 1px solid colormap(border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+}
+
+.priceAmount {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: colormap(text-main);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.priceSub {
+  font-size: get-font-size(xs);
+  color: colormap(text-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(2);
+  margin-bottom: spacing(6);
+}
+
+.metaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(1);
+  font-size: get-font-size(xs);
+  color: colormap(text-secondary);
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: spacing(1) spacing(3);
+  border-radius: radius(full);
+  font-weight: 500;
+}
+
+.featuresBlock {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+  margin-bottom: spacing(8);
+  flex: 1;
+}
+
+.featuresHeading {
+  font-size: get-font-size(xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: colormap(text-main);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+  font-size: get-font-size(sm);
+  color: colormap(text-secondary);
+}
+
+.checkWrap {
+  width: 18px;
+  height: 18px;
+  border-radius: radius(full);
+  background-color: rgba(16, 185, 129, 0.12);
+  color: colormap(success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.actionWrap {
+  margin-top: auto;
 }

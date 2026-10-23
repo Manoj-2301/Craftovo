@@ -20,7 +20,7 @@
   width: 100%;
   max-width: 800px;
   height: 600px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(47, 76, 255, 0.04);
   border-radius: radius(full);
   filter: blur(120px);
   pointer-events: none;
@@ -33,6 +33,12 @@
   gap: spacing(6);
   margin-bottom: spacing(10);
 
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
   @include desktop {
     flex-direction: row;
     align-items: flex-end;
@@ -40,32 +46,46 @@
   }
 }
 
+.headingCol {
+  flex: 1;
+  max-width: 680px;
+}
+
+.testimonialsHeading {
+  margin-bottom: 0 !important;
+}
+
 .carouselControls {
   display: flex;
-  gap: spacing(4);
+  align-items: center;
+  gap: spacing(3);
   flex-shrink: 0;
-  margin-bottom: spacing(4);
+  margin-bottom: spacing(2);
 }
 
 .controlButton {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: radius(full);
-  @include glass-panel;
+  background-color: colormap(white);
+  border: 1px solid colormap(border-strong);
   display: flex;
   align-items: center;
   justify-content: center;
   color: colormap(text-main);
-  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
-    background-color: colormap(white);
-    transform: translateY(-2px);
-    box-shadow: shadow(md);
+    background-color: colormap(primary);
+    border-color: colormap(primary);
+    color: colormap(white);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px -4px rgba(47, 76, 255, 0.4);
   }
 
   &:active {
-    transform: translateY(0);
+    transform: scale(0.95);
   }
 }
 
@@ -101,39 +121,52 @@
   }
 
   @include mobile {
+    flex: 0 0 88%;
     padding-left: spacing(4);
   }
 }
 
 .testimonialCard {
-  @include glass-panel;
-  padding: spacing(10);
+  background-color: colormap(white);
+  border: 1px solid colormap(border-strong);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  padding: spacing(9);
   border-radius: radius(2xl);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 320px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.09);
+    border-color: rgba(47, 76, 255, 0.3);
+  }
 
   @include mobile {
     padding: spacing(6);
     border-radius: radius(xl);
+    min-height: 280px;
   }
 }
 
 .quoteIcon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   color: colormap(primary);
-  opacity: 0.35;
-  margin-bottom: spacing(6);
+  opacity: 0.8;
+  margin-bottom: spacing(5);
 }
 
 .quoteText {
   font-size: get-font-size(lg);
   color: colormap(text-main);
-  font-weight: 300;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.65;
   margin-bottom: spacing(8);
 
   @include mobile {
@@ -149,23 +182,27 @@
 
 .avatarWrap {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: radius(full);
   overflow: hidden;
   border: 1px solid colormap(border-strong);
   flex-shrink: 0;
 }
 
+.avatarImg {
+  object-fit: cover;
+}
+
 .authorName {
   font-family: var(--font-display), sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: colormap(text-main);
   font-size: get-font-size(base);
 }
 
 .authorRole {
-  color: colormap(text-muted);
+  color: colormap(text-secondary);
   font-size: get-font-size(sm);
-  font-weight: 300;
+  font-weight: 400;
 }

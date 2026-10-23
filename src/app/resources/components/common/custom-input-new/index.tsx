@@ -24,6 +24,8 @@ export interface CustomInputNewProps {
   styles?: any;
   disabled?: boolean;
   autoComplete?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 export const CustomInputNew: React.FC<CustomInputNewProps> = ({
@@ -40,6 +42,8 @@ export const CustomInputNew: React.FC<CustomInputNewProps> = ({
   styles: injectedStyles,
   disabled = false,
   autoComplete = 'off',
+  value,
+  onChange,
 }) => {
   /** ---------- State & Hooks ---------- */
   const [isFocused, setIsFocused] = useState(false);
@@ -50,7 +54,7 @@ export const CustomInputNew: React.FC<CustomInputNewProps> = ({
     ? (formfieldsData as any)[parent][name]
     : (formfieldsData as any)?.contact?.[name] || null;
 
-  const displayLabel = label || fieldMeta?.label || name;
+  const displayLabel = label || fieldMeta?.label || (parent ? name : '');
   const displayPlaceholder = placeholder || fieldMeta?.placeholder || '';
 
   const InputWrapper = type === 'textarea' ? 'textarea' : 'input';
@@ -72,6 +76,8 @@ export const CustomInputNew: React.FC<CustomInputNewProps> = ({
             rows={type === 'textarea' ? rows : undefined}
             placeholder={displayPlaceholder}
             disabled={disabled}
+            value={value}
+            onChange={onChange}
             autoComplete={autoComplete}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
