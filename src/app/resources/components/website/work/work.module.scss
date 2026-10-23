@@ -1,0 +1,149 @@
+@use "@/styles/_mixin.scss" as *;
+
+.workPageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.heroSection {
+  position: relative;
+  padding-top: spacing(16);
+  padding-bottom: spacing(12);
+  overflow: hidden;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mobile {
+    padding-top: spacing(12);
+    padding-bottom: spacing(8);
+  }
+}
+
+.heroBgImage {
+  object-fit: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  filter: grayscale(100%);
+  mix-blend-mode: luminosity;
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, colormap(bg-main), transparent 40%, colormap(bg-main));
+  pointer-events: none;
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  margin-bottom: spacing(4);
+  color: colormap(text-main);
+  letter-spacing: -0.02em;
+}
+
+.leadText {
+  font-size: get-font-size(xl);
+  color: colormap(text-muted);
+  max-width: 700px;
+  line-height: 1.6;
+  font-weight: 300;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.projectsGridSection {
+  padding-top: spacing(12);
+  padding-bottom: spacing(16);
+
+  @include mobile {
+    padding-top: spacing(8);
+    padding-bottom: spacing(10);
+  }
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: spacing(10);
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: spacing(12);
+  }
+}
+
+.projectCardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    .imageWrap {
+      border-color: colormap(border-strong);
+      box-shadow: shadow(xl);
+    }
+
+    .projectImage {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .projectTitle {
+      color: colormap(primary);
+    }
+  }
+}
+
+.imageWrap {
+  @include glass-panel;
+  border-radius: radius(3xl);
+  height: 420px;
+  margin-bottom: spacing(6);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  @include mobile {
+    height: 280px;
+    border-radius: radius(2xl);
+  }
+}
+
+.projectImage {
+  object-fit: cover;
+  opacity: 0.65;
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.imageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, colormap(bg-main), rgba(244, 244, 246, 0.4) 40%, transparent);
+  opacity: 0.8;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.projectTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(2xl);
+  font-weight: 500;
+  margin-bottom: spacing(2);
+  color: colormap(text-main);
+  transition: color 0.2s ease;
+}
+
+.projectDesc {
+  color: colormap(text-muted);
+  font-weight: 300;
+  font-size: get-font-size(base);
+  line-height: 1.5;
+}

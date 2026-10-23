@@ -1,0 +1,343 @@
+@use "@/styles/_mixin.scss" as *;
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Hero Section
+.heroSection {
+  position: relative;
+  padding-top: spacing(16);
+  padding-bottom: spacing(10);
+  overflow: hidden;
+
+  @include desktop {
+    padding-top: spacing(16);
+    padding-bottom: spacing(12);
+  }
+
+  @include mobile {
+    padding-top: spacing(12);
+    padding-bottom: spacing(8);
+  }
+}
+
+.heroBgImage {
+  object-fit: cover;
+  opacity: 0.07;
+  pointer-events: none;
+  filter: grayscale(100%);
+  mix-blend-mode: multiply;
+}
+
+.heroGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(244, 244, 246, 0.6) 60%, colormap(bg-main));
+  pointer-events: none;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: radius(full);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: spacing(8);
+  align-items: flex-end;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+    gap: spacing(10);
+  }
+}
+
+.heroTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.75rem, 6.5vw, 6rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: colormap(text-main);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(8);
+
+  @include desktop {
+    padding-bottom: spacing(2);
+  }
+}
+
+.heroSubtitle {
+  font-size: get-font-size(lg);
+  color: colormap(text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+
+  @include desktop {
+    font-size: get-font-size(xl);
+  }
+}
+
+.heroActions {
+  display: flex;
+  gap: spacing(4);
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.metricsRow {
+  margin-top: spacing(12);
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid colormap(border-strong);
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.metricCol {
+  padding: spacing(6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+  border-bottom: 1px solid colormap(border-subtle);
+
+  @include tablet {
+    padding: spacing(6) spacing(8);
+    border-bottom: none;
+    border-right: 1px solid colormap(border-subtle);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  @include desktop {
+    padding: spacing(6) spacing(8);
+    border-bottom: none;
+    border-right: 1px solid colormap(border-subtle);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.metricLabel {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(md);
+  font-weight: 500;
+  color: colormap(text-main);
+}
+
+.metricDesc {
+  font-size: get-font-size(sm);
+  color: colormap(text-muted);
+  font-weight: 300;
+}
+
+// Capability Ticker
+.tickerSection {
+  padding: spacing(7) 0;
+  border-top: 1px solid colormap(border-subtle);
+  border-bottom: 1px solid colormap(border-subtle);
+  background-color: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  opacity: 0.5;
+  position: relative;
+  width: 100%;
+}
+
+.tickerTrack {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: colormap(text-main);
+  animation: marquee 30s linear infinite;
+}
+
+.tickerGroup {
+  display: flex;
+  gap: spacing(10);
+  padding: 0 spacing(8);
+  align-items: center;
+}
+
+.tickerBullet {
+  color: colormap(primary);
+}
+
+// Bento Services Grid
+.servicesSection {
+  padding: spacing(16) 0;
+
+  @include mobile {
+    padding: spacing(10) 0;
+  }
+}
+
+.bentoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(8);
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: spacing(12);
+}
+
+.bentoStickyWrapper {
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.bentoCard {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: spacing(10);
+  background-color: colormap(surface-dark-card);
+  border-radius: radius(3xl);
+  text-decoration: none;
+  color: colormap(white);
+  box-shadow: shadow(lg);
+
+  &:hover {
+    .arrowBadge {
+      background-color: colormap(primary);
+      border-color: colormap(primary);
+    }
+
+    .bentoBgImage {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  @include mobile {
+    padding: spacing(6);
+    min-height: 400px;
+    border-radius: radius(2xl);
+  }
+}
+
+.bentoHeader {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+  z-index: 20;
+}
+
+.arrowBadge {
+  width: 56px;
+  height: 56px;
+  border-radius: radius(full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: colormap(white);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+
+  @include mobile {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.bentoContent {
+  position: relative;
+  z-index: 20;
+  margin-top: auto;
+  padding-top: spacing(16);
+  max-width: 500px;
+}
+
+.bentoTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 500;
+  margin-bottom: spacing(4);
+  color: colormap(white);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.bentoDescription {
+  color: colormap(text-light-muted);
+  font-weight: 300;
+  font-size: get-font-size(lg);
+  line-height: 1.6;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.bentoImageLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: radius(3xl);
+}
+
+.bentoBgImage {
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bentoGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #050505, rgba(5, 5, 5, 0.8) 45%, transparent);
+}

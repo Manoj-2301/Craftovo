@@ -1,0 +1,115 @@
+@use "@/styles/_mixin.scss" as *;
+
+.aboutPageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.heroSection {
+  position: relative;
+  padding-top: spacing(16);
+  padding-bottom: spacing(12);
+  overflow: hidden;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mobile {
+    padding-top: spacing(12);
+    padding-bottom: spacing(8);
+  }
+}
+
+.heroBgImage {
+  object-fit: cover;
+  opacity: 0.2;
+  pointer-events: none;
+  filter: grayscale(100%);
+  mix-blend-mode: luminosity;
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(244, 244, 246, 0.85) 60%, colormap(bg-main));
+  pointer-events: none;
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  margin-bottom: spacing(6);
+  color: colormap(text-main);
+  letter-spacing: -0.02em;
+}
+
+.leadText {
+  font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+  color: colormap(text-muted);
+  max-width: 900px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.philosophySection {
+  padding-top: spacing(12);
+  padding-bottom: spacing(16);
+
+  @include mobile {
+    padding-top: spacing(8);
+    padding-bottom: spacing(10);
+  }
+}
+
+.philosophyCard {
+  @include glass-panel;
+  border-radius: radius(3xl);
+  padding: spacing(16);
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    padding: spacing(8);
+    border-radius: radius(2xl);
+  }
+}
+
+.philosophyBgImage {
+  object-fit: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.philosophyContent {
+  position: relative;
+  z-index: 10;
+}
+
+.philosophyTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  margin-bottom: spacing(6);
+  color: colormap(text-main);
+}
+
+.philosophyParagraph {
+  font-size: get-font-size(lg);
+  color: colormap(text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 800px;
+  margin-bottom: spacing(6);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}

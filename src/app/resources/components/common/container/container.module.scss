@@ -1,0 +1,15 @@
+@use "@/styles/_mixin.scss" as *;
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: spacing(6);
+  padding-right: spacing(6);
+
+  @include mobile {
+    padding-left: spacing(4);
+    padding-right: spacing(4);
+  }
+}

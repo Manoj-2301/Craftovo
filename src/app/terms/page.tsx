@@ -1,16 +1,18 @@
-import { Container } from '@/components/common/Container/Container';
+/* React import */
+import React from 'react';
 
+/** Libraries */
+import type { Metadata } from 'next';
+
+/** Components */
+import TermsView from '@/Components/website/terms';
+
+/** Local Imports */
+import { generateMetadata as getPageMetadata } from '@/config/metadata.config';
+
+export const metadata: Metadata = getPageMetadata('terms');
+
+/** Main Export */
 export default function TermsPage() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      
-      <main className="flex-1 py-32 md:py-48">
-        <Container>
-          <h1 className="font-outfit text-5xl font-medium text-text-main mb-8">Terms of Service</h1>
-          <p className="text-text-muted">Terms of service.</p>
-        </Container>
-      </main>
-      
-    </div>
-  );
+  return <TermsView />;
 }

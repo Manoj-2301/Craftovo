@@ -1,0 +1,121 @@
+@use "./_mixin.scss" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
+  width: 100%;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacing(5);
+  width: 100%;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  width: 100%;
+
+  &.half {
+    width: 50%;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+.label {
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  color: colormap(text-main);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: spacing(1);
+
+  .required {
+    color: colormap(error);
+  }
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: spacing(4);
+  background: colormap(surface-soft);
+  border: 1px solid colormap(border-subtle);
+  border-radius: radius(md);
+  color: colormap(text-main);
+  font-size: get-font-size(base);
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: colormap(text-muted);
+  }
+
+  &:hover {
+    border-color: colormap(border-strong);
+  }
+
+  &:focus {
+    outline: none;
+    background: colormap(white);
+    border-color: colormap(primary);
+    box-shadow: 0 0 0 3px rgba(47, 76, 255, 0.15);
+  }
+
+  &.hasError {
+    border-color: colormap(error);
+
+    &:focus {
+      box-shadow: 0 0 0 3px colormap(error-light);
+    }
+  }
+}
+
+.textarea {
+  @extend .input;
+  min-height: 140px;
+  resize: vertical;
+}
+
+.select {
+  @extend .input;
+  appearance: none;
+  cursor: pointer;
+  padding-right: spacing(9);
+}
+
+.selectIcon {
+  position: absolute;
+  right: spacing(4);
+  pointer-events: none;
+  color: colormap(text-muted);
+}
+
+.errorMessage {
+  font-size: get-font-size(xs);
+  color: colormap(error);
+  margin-top: spacing(1);
+}
+
+.helperText {
+  font-size: get-font-size(xs);
+  color: colormap(text-muted);
+  margin-top: spacing(1);
+}

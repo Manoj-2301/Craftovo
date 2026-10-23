@@ -1,5 +1,8 @@
+/* React import */
 'use client';
+import React from 'react';
 
+/** Libraries */
 import { motion, MotionConfig } from 'framer-motion';
 
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -10,7 +13,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         exit={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full flex-1 flex flex-col"
+        style={{ width: '100%', flex: 1, display: 'flex', flexDirection: 'column' }}
       >
         {children}
       </motion.div>

@@ -1,0 +1,152 @@
+@use "@/styles/_mixin.scss" as *;
+
+.footer {
+  padding-top: spacing(16);
+  padding-bottom: spacing(8);
+  padding-left: spacing(6);
+  padding-right: spacing(6);
+  background-color: colormap(bg-main);
+  position: relative;
+  overflow: hidden;
+  margin-top: spacing(16);
+
+  @include mobile {
+    padding-top: spacing(10);
+    padding-left: spacing(4);
+    padding-right: spacing(4);
+    margin-top: spacing(10);
+  }
+}
+
+.contentGrid {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: spacing(10);
+  margin-bottom: spacing(16);
+  position: relative;
+  z-index: 10;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: spacing(8);
+    margin-bottom: spacing(10);
+  }
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: get-font-size(xl);
+  display: flex;
+  align-items: center;
+  gap: spacing(3);
+  margin-bottom: spacing(4);
+  color: colormap(text-main);
+  text-decoration: none;
+}
+
+.logoBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: radius(full);
+  background-color: colormap(primary);
+  color: colormap(white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: get-font-size(sm);
+  font-weight: 900;
+  box-shadow: shadow(primary);
+}
+
+.brandTagline {
+  color: colormap(text-muted);
+  font-size: get-font-size(base);
+  max-width: 340px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+}
+
+.groupTitle {
+  color: colormap(text-main);
+  font-weight: 500;
+  font-size: get-font-size(sm);
+  margin-bottom: spacing(2);
+  letter-spacing: 0.02em;
+}
+
+.footerLink {
+  color: colormap(text-muted);
+  font-size: get-font-size(sm);
+  font-weight: 300;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: colormap(text-main);
+  }
+}
+
+.bottomBar {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid colormap(border-subtle);
+  padding-top: spacing(6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: colormap(text-muted);
+  font-size: get-font-size(sm);
+  font-weight: 300;
+  position: relative;
+  z-index: 10;
+
+  @include mobile {
+    flex-direction: column;
+    gap: spacing(4);
+    align-items: flex-start;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  gap: spacing(6);
+}
+
+.watermark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  display: flex;
+  justify-content: center;
+  transform: translateY(30%);
+  overflow: hidden;
+  user-select: none;
+
+  h2 {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 900;
+    font-size: 18vw;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -0.05em;
+  }
+}

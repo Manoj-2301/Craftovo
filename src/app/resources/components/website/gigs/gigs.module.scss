@@ -1,0 +1,122 @@
+@use "@/styles/_mixin.scss" as *;
+
+.gigsPageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.heroSection {
+  position: relative;
+  padding-top: spacing(16);
+  padding-bottom: spacing(12);
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: spacing(12);
+    padding-bottom: spacing(8);
+  }
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  margin-bottom: spacing(4);
+  color: colormap(text-main);
+  letter-spacing: -0.02em;
+}
+
+.leadText {
+  font-size: get-font-size(xl);
+  color: colormap(text-muted);
+  max-width: 700px;
+  line-height: 1.6;
+  font-weight: 300;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.gigsGridSection {
+  padding-top: spacing(10);
+  padding-bottom: spacing(16);
+
+  @include mobile {
+    padding-top: spacing(6);
+    padding-bottom: spacing(10);
+  }
+}
+
+.gigsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: spacing(8);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gigCard {
+  @include glass-panel;
+  border-radius: radius(2xl);
+  padding: spacing(8);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.35s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: colormap(border-strong);
+    box-shadow: shadow(xl);
+  }
+}
+
+.category {
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  color: colormap(text-muted);
+  margin-bottom: spacing(3);
+}
+
+.gigTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(2xl);
+  font-weight: 500;
+  margin-bottom: spacing(4);
+  color: colormap(text-main);
+}
+
+.priceRow {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(2xl);
+  color: colormap(text-main);
+  font-weight: 500;
+  margin-bottom: spacing(6);
+  padding-bottom: spacing(6);
+  border-bottom: 1px solid colormap(border-subtle);
+  letter-spacing: -0.02em;
+
+  span {
+    font-size: get-font-size(sm);
+    color: colormap(text-muted);
+    font-weight: 300;
+    letter-spacing: normal;
+  }
+}
+
+.description {
+  color: colormap(text-muted);
+  margin-bottom: spacing(8);
+  flex: 1;
+  line-height: 1.6;
+  font-weight: 300;
+  font-size: get-font-size(base);
+}

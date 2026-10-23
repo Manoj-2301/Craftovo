@@ -1,0 +1,171 @@
+@use "@/styles/_mixin.scss" as *;
+
+.section {
+  padding-top: spacing(16);
+  padding-bottom: spacing(16);
+  border-top: 1px solid colormap(border-subtle);
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: spacing(10);
+    padding-bottom: spacing(10);
+  }
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: radius(full);
+  filter: blur(120px);
+  pointer-events: none;
+  transform: translate(30%, -50%);
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
+  margin-bottom: spacing(10);
+
+  @include desktop {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.carouselControls {
+  display: flex;
+  gap: spacing(4);
+  flex-shrink: 0;
+  margin-bottom: spacing(4);
+}
+
+.controlButton {
+  width: 52px;
+  height: 52px;
+  border-radius: radius(full);
+  @include glass-panel;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: colormap(text-main);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: colormap(white);
+    transform: translateY(-2px);
+    box-shadow: shadow(md);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.viewport {
+  overflow: hidden;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.sliderContainer {
+  display: flex;
+  margin-left: - spacing(6);
+
+  @include mobile {
+    margin-left: - spacing(4);
+  }
+}
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-left: spacing(6);
+
+  @include tablet {
+    flex: 0 0 50%;
+  }
+
+  @include desktop {
+    flex: 0 0 40%;
+  }
+
+  @include mobile {
+    padding-left: spacing(4);
+  }
+}
+
+.testimonialCard {
+  @include glass-panel;
+  padding: spacing(10);
+  border-radius: radius(2xl);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+
+  @include mobile {
+    padding: spacing(6);
+    border-radius: radius(xl);
+  }
+}
+
+.quoteIcon {
+  width: 36px;
+  height: 36px;
+  color: colormap(primary);
+  opacity: 0.35;
+  margin-bottom: spacing(6);
+}
+
+.quoteText {
+  font-size: get-font-size(lg);
+  color: colormap(text-main);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: spacing(8);
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: spacing(4);
+}
+
+.avatarWrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: radius(full);
+  overflow: hidden;
+  border: 1px solid colormap(border-strong);
+  flex-shrink: 0;
+}
+
+.authorName {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 500;
+  color: colormap(text-main);
+  font-size: get-font-size(base);
+}
+
+.authorRole {
+  color: colormap(text-muted);
+  font-size: get-font-size(sm);
+  font-weight: 300;
+}

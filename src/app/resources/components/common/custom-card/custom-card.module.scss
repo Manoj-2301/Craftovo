@@ -1,0 +1,22 @@
+@use "@/styles/_mixin.scss" as *;
+
+.card {
+  @include glass-panel;
+  border-radius: radius(2xl);
+  padding: spacing(8);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: colormap(border-strong);
+    box-shadow: shadow(xl);
+  }
+
+  @include mobile {
+    padding: spacing(6);
+    border-radius: radius(xl);
+  }
+}

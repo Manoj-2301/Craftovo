@@ -1,0 +1,86 @@
+@use "@/styles/_mixin.scss" as *;
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  width: 100%;
+
+  &.half {
+    width: 50%;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+.label {
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  color: colormap(text-main);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: spacing(1);
+
+  .required {
+    color: colormap(error);
+  }
+}
+
+.selectWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  width: 100%;
+  padding: spacing(4);
+  padding-right: spacing(9);
+  background: colormap(surface-soft);
+  border: 1px solid colormap(border-subtle);
+  border-radius: radius(md);
+  color: colormap(text-main);
+  font-size: get-font-size(base);
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: colormap(border-strong);
+  }
+
+  &:focus {
+    outline: none;
+    background: colormap(white);
+    border-color: colormap(primary);
+    box-shadow: 0 0 0 3px rgba(47, 76, 255, 0.15);
+  }
+
+  &.hasError {
+    border-color: colormap(error);
+
+    &:focus {
+      box-shadow: 0 0 0 3px colormap(error-light);
+    }
+  }
+}
+
+.arrowIcon {
+  position: absolute;
+  right: spacing(4);
+  pointer-events: none;
+  color: colormap(text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorMessage {
+  font-size: get-font-size(xs);
+  color: colormap(error);
+  margin-top: spacing(1);
+}

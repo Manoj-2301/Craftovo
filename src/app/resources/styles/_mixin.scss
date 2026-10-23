@@ -1,0 +1,230 @@
+@use "sass:map";
+
+$colors: (
+  bg-main: #F4F4F6,
+  bg-dark: #0B0B0E,
+  surface: #FFFFFF,
+  surface-elevated: rgba(255, 255, 255, 0.72),
+  surface-soft: rgba(255, 255, 255, 0.5),
+  surface-dark: #0B0B0E,
+  surface-dark-card: #050505,
+  
+  text-main: #0B0B0E,
+  text-secondary: #5E5E6A,
+  text-muted: #7E7E8B,
+  text-light: #FFFFFF,
+  text-light-muted: #A0A0A0,
+  
+  border-subtle: rgba(0, 0, 0, 0.05),
+  border-strong: rgba(0, 0, 0, 0.12),
+  border-dark: rgba(255, 255, 255, 0.10),
+  border-dark-subtle: rgba(255, 255, 255, 0.05),
+  
+  primary: #2F4CFF,
+  primary-hover: #2540DB,
+  primary-light: #EEF1FF,
+  accent: #2F4CFF,
+  accent-hover: #2540DB,
+  
+  error: #EF4444,
+  error-light: rgba(239, 68, 68, 0.1),
+  success: #10B981,
+  
+  white: #FFFFFF,
+  black: #000000,
+  transparent: transparent
+);
+
+$font-sizes: (
+  xs: 0.75rem,       // 12px
+  sm: 0.875rem,      // 14px
+  base: 1rem,        // 16px
+  md: 1.125rem,      // 18px
+  lg: 1.25rem,       // 20px
+  xl: 1.5rem,        // 24px
+  "2xl": 2rem,       // 32px
+  2xl: 2rem,
+  "3xl": 2.5rem,     // 40px
+  3xl: 2.5rem,
+  "4xl": 3.25rem,    // 52px
+  4xl: 3.25rem,
+  "5xl": 4.25rem,    // 68px
+  5xl: 4.25rem,
+  "6xl": 5.5rem,     // 88px
+  6xl: 5.5rem
+);
+
+$spacings: (
+  none: 0,
+  0: 0,
+  "1": 0.25rem,      // 4px
+  1: 0.25rem,
+  "2": 0.5rem,       // 8px
+  2: 0.5rem,
+  "3": 0.75rem,      // 12px
+  3: 0.75rem,
+  "4": 1rem,         // 16px
+  4: 1rem,
+  "5": 1.25rem,      // 20px
+  5: 1.25rem,
+  "6": 1.5rem,       // 24px
+  6: 1.5rem,
+  "7": 2rem,         // 32px
+  7: 2rem,
+  "8": 2.5rem,       // 40px
+  8: 2.5rem,
+  "9": 3rem,         // 48px
+  9: 3rem,
+  "10": 4rem,        // 64px
+  10: 4rem,
+  "12": 5rem,        // 80px
+  12: 5rem,
+  "16": 6rem,        // 96px
+  16: 6rem,
+  xs: 0.25rem,
+  sm: 0.5rem,
+  md: 1rem,
+  lg: 1.5rem,
+  xl: 2rem,
+  "2xl": 3rem,
+  2xl: 3rem,
+  "3xl": 4rem,
+  3xl: 4rem,
+  "4xl": 6rem,
+  4xl: 6rem
+);
+
+$radii: (
+  none: 0,
+  sm: 0.375rem,      // 6px
+  md: 0.75rem,       // 12px
+  lg: 1rem,          // 16px
+  xl: 1.5rem,        // 24px
+  "2xl": 2rem,       // 32px
+  2xl: 2rem,
+  "3xl": 2.5rem,     // 40px
+  3xl: 2.5rem,
+  full: 9999px
+);
+
+$shadows: (
+  none: none,
+  sm: 0 1px 3px rgba(0, 0, 0, 0.04),
+  md: 0 8px 30px rgba(0, 0, 0, 0.06),
+  lg: 0 20px 40px rgba(0, 0, 0, 0.08),
+  xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+  glow: 0 0 40px rgba(47, 76, 255, 0.25),
+  primary: 0 12px 28px -14px rgba(47, 76, 255, 0.8)
+);
+
+// Functions
+@function colormap($color-name) {
+  $str: #{$color-name};
+  @if map.has-key($colors, $color-name) {
+    @return map.get($colors, $color-name);
+  } @else if map.has-key($colors, $str) {
+    @return map.get($colors, $str);
+  }
+  @warn "Unknown color `#{$color-name}` in colormap.";
+  @return null;
+}
+
+@function get-font-size($size-name) {
+  $str: #{$size-name};
+  @if map.has-key($font-sizes, $size-name) {
+    @return map.get($font-sizes, $size-name);
+  } @else if map.has-key($font-sizes, $str) {
+    @return map.get($font-sizes, $str);
+  }
+  @warn "Unknown font size `#{$size-name}`.";
+  @return null;
+}
+
+@function spacing($size-name) {
+  $str: #{$size-name};
+  @if map.has-key($spacings, $size-name) {
+    @return map.get($spacings, $size-name);
+  } @else if map.has-key($spacings, $str) {
+    @return map.get($spacings, $str);
+  }
+  @warn "Unknown spacing `#{$size-name}`.";
+  @return null;
+}
+
+@function radius($size-name) {
+  $str: #{$size-name};
+  @if map.has-key($radii, $size-name) {
+    @return map.get($radii, $size-name);
+  } @else if map.has-key($radii, $str) {
+    @return map.get($radii, $str);
+  }
+  @warn "Unknown radius `#{$size-name}`.";
+  @return null;
+}
+
+@function shadow($size-name) {
+  $str: #{$size-name};
+  @if map.has-key($shadows, $size-name) {
+    @return map.get($shadows, $size-name);
+  } @else if map.has-key($shadows, $str) {
+    @return map.get($shadows, $str);
+  }
+  @warn "Unknown shadow `#{$size-name}`.";
+  @return null;
+}
+
+// Media Query Mixins
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+// Common Style Mixins
+@mixin glass-panel {
+  background: colormap(surface-elevated);
+  box-shadow: shadow(md);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid colormap(border-subtle);
+}
+
+@mixin text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin hover-transition {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@mixin focus-ring {
+  &:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  &:focus-visible {
+    outline: 2px solid colormap(primary);
+    outline-offset: 3px;
+  }
+}

@@ -1,0 +1,59 @@
+@use "@/styles/_mixin.scss" as *;
+
+.formCard {
+  @include glass-panel;
+  padding: spacing(10);
+  border-radius: radius(3xl);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(8);
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    padding: spacing(6);
+    border-radius: radius(2xl);
+    gap: spacing(6);
+  }
+}
+
+.glowDecor {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(47, 76, 255, 0.04), transparent 70%);
+  pointer-events: none;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacing(6);
+  position: relative;
+  z-index: 10;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: spacing(4);
+  }
+}
+
+.fullWidthField {
+  position: relative;
+  z-index: 10;
+}
+
+.submitWrap {
+  position: relative;
+  z-index: 10;
+  margin-top: spacing(2);
+}
+
+.successMessage {
+  padding: spacing(4);
+  border-radius: radius(md);
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid colormap(success);
+  color: colormap(success);
+  font-size: get-font-size(sm);
+  text-align: center;
+}

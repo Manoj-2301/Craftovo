@@ -1,0 +1,96 @@
+@use "@/styles/_mixin.scss" as *;
+
+.ctaWrapper {
+  padding-top: spacing(16);
+  padding-bottom: spacing(16);
+
+  @include mobile {
+    padding-top: spacing(10);
+    padding-bottom: spacing(10);
+  }
+}
+
+.ctaCard {
+  background-color: colormap(bg-dark);
+  border: 1px solid colormap(border-dark);
+  box-shadow: shadow(xl);
+  padding: spacing(16) spacing(8);
+  border-radius: radius(3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  @include mobile {
+    padding: spacing(10) spacing(6);
+    border-radius: radius(2xl);
+  }
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 350px;
+  background-color: rgba(47, 76, 255, 0.25);
+  border-radius: radius(full);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.textBlock {
+  margin-bottom: spacing(8);
+  max-width: 640px;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 500;
+  color: colormap(white);
+  margin-bottom: spacing(4);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.description {
+  font-size: get-font-size(lg);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: spacing(4);
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+}

@@ -1,0 +1,151 @@
+@use "@/styles/_mixin.scss" as *;
+
+.projectPageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.heroSection {
+  position: relative;
+  padding-top: spacing(16);
+  padding-bottom: spacing(12);
+  overflow: hidden;
+
+  @include mobile {
+    padding-top: spacing(12);
+    padding-bottom: spacing(8);
+  }
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: spacing(12);
+}
+
+.categoryBadge {
+  display: inline-block;
+  padding: spacing(2) spacing(4);
+  border-radius: radius(full);
+  @include glass-panel;
+  font-size: get-font-size(xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: colormap(text-muted);
+  margin-bottom: spacing(4);
+}
+
+.title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  color: colormap(text-main);
+  letter-spacing: -0.02em;
+}
+
+.heroImageWrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  @include glass-panel;
+  border-radius: radius(3xl);
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  @include mobile {
+    border-radius: radius(2xl);
+  }
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.detailsSection {
+  padding-top: spacing(12);
+  padding-bottom: spacing(16);
+}
+
+.detailsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(10);
+
+  @include desktop {
+    flex-direction: row;
+    gap: spacing(16);
+  }
+}
+
+.overviewCol {
+  width: 100%;
+
+  @include desktop {
+    width: 65%;
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(2xl);
+  font-weight: 500;
+  margin-bottom: spacing(6);
+  color: colormap(text-main);
+}
+
+.overviewText {
+  font-size: get-font-size(lg);
+  color: colormap(text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.techCol {
+  width: 100%;
+
+  @include desktop {
+    width: 35%;
+  }
+}
+
+.techCard {
+  @include glass-panel;
+  padding: spacing(8);
+  border-radius: radius(2xl);
+}
+
+.techCardTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: get-font-size(xl);
+  font-weight: 500;
+  margin-bottom: spacing(4);
+  color: colormap(text-main);
+  border-bottom: 1px solid colormap(border-subtle);
+  padding-bottom: spacing(3);
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(2);
+}
+
+.techBadge {
+  padding: spacing(2) spacing(4);
+  border-radius: radius(full);
+  background-color: rgba(0, 0, 0, 0.04);
+  color: colormap(text-muted);
+  font-size: get-font-size(sm);
+  border: 1px solid colormap(border-subtle);
+}

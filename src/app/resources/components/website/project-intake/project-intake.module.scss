@@ -1,0 +1,220 @@
+@use "@/styles/_mixin.scss" as *;
+
+.wizardPageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: spacing(16);
+  padding-bottom: spacing(16);
+
+  @include mobile {
+    padding-top: spacing(12);
+    padding-bottom: spacing(10);
+  }
+}
+
+.wizardContainer {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+// Top Progress Header
+.progressHeader {
+  margin-bottom: spacing(10);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(4);
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepCounter {
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  color: colormap(primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.draftSavedText {
+  font-size: get-font-size(xs);
+  color: colormap(text-muted);
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: radius(full);
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: colormap(primary);
+  border-radius: radius(full);
+  transition: width 0.4s ease;
+}
+
+// Step Content Card
+.stepCard {
+  @include glass-panel;
+  padding: spacing(10);
+  border-radius: radius(3xl);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(8);
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    padding: spacing(6);
+    border-radius: radius(2xl);
+    gap: spacing(6);
+  }
+}
+
+.stepTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+}
+
+.stepTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 500;
+  color: colormap(text-main);
+  letter-spacing: -0.02em;
+}
+
+.stepDesc {
+  font-size: get-font-size(lg);
+  color: colormap(text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+
+  @include mobile {
+    font-size: get-font-size(base);
+  }
+}
+
+.fieldsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
+}
+
+// Option Pill Group (Radio & Checkbox)
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+}
+
+.groupLabel {
+  font-size: get-font-size(sm);
+  font-weight: 500;
+  color: colormap(text-main);
+  opacity: 0.85;
+
+  .required {
+    color: colormap(error);
+    margin-left: spacing(1);
+  }
+}
+
+.optionsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(3);
+}
+
+.optionPill {
+  padding: spacing(3) spacing(5);
+  border-radius: radius(full);
+  font-size: get-font-size(sm);
+  background-color: colormap(surface-soft);
+  border: 1px solid colormap(border-subtle);
+  color: colormap(text-main);
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: colormap(border-strong);
+    background-color: colormap(white);
+  }
+
+  &.selected {
+    background-color: colormap(primary);
+    border-color: colormap(primary);
+    color: colormap(white);
+    box-shadow: shadow(primary);
+  }
+}
+
+// Navigation Row
+.navigationRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: spacing(4);
+  padding-top: spacing(6);
+  border-top: 1px solid colormap(border-subtle);
+
+  @include mobile {
+    flex-direction: column;
+    gap: spacing(4);
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.successCard {
+  @include glass-panel;
+  padding: spacing(16);
+  border-radius: radius(3xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing(6);
+
+  @include mobile {
+    padding: spacing(8);
+  }
+}
+
+.successIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: radius(full);
+  background-color: rgba(16, 185, 129, 0.1);
+  color: colormap(success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: colormap(text-main);
+}
+
+.successDesc {
+  font-size: get-font-size(lg);
+  color: colormap(text-muted);
+  max-width: 540px;
+  line-height: 1.6;
+  font-weight: 300;
+}

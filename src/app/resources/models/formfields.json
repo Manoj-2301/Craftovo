@@ -1,0 +1,73 @@
+{
+  "contact": {
+    "name": {
+      "label": "Your Name",
+      "placeholder": "Jane Doe",
+      "error": "Name must be at least 2 characters"
+    },
+    "email": {
+      "label": "Email Address",
+      "placeholder": "jane@example.com",
+      "error": "Please enter a valid email address"
+    },
+    "service": {
+      "label": "Service of Interest",
+      "placeholder": "Select a service",
+      "error": "Please select a service"
+    },
+    "details": {
+      "label": "Project Details",
+      "placeholder": "Tell us about what you want to build, timeline, and goals...",
+      "error": "Please provide more details (at least 10 characters)"
+    }
+  },
+  "projectIntake": {
+    "companyName": {
+      "label": "Company or Brand Name",
+      "placeholder": "e.g. Riverstone Coffee Co.",
+      "error": "Company name is required"
+    },
+    "businessDescription": {
+      "label": "What does your business do?",
+      "placeholder": "One or two sentences is perfect.",
+      "error": "Business description is required"
+    },
+    "industry": {
+      "label": "Industry",
+      "placeholder": "e.g. Hospitality, SaaS, Retail"
+    },
+    "currentSiteUrl": {
+      "label": "Current Website URL",
+      "placeholder": "https://"
+    },
+    "successDefinition": {
+      "label": "What does success look like six months after launch?",
+      "placeholder": "Traffic, leads, sales, time saved...",
+      "error": "Success definition is required"
+    },
+    "primaryAudience": {
+      "label": "Who is the primary audience?",
+      "placeholder": "Age range, role, intent, where they come from...",
+      "error": "Primary audience is required"
+    },
+    "primaryAction": {
+      "label": "What is the single most important action a visitor should take?",
+      "placeholder": "e.g. Book a call, add to cart, submit a quote request",
+      "error": "Primary action is required"
+    },
+    "contactName": {
+      "label": "Your Name",
+      "placeholder": "Jane Doe",
+      "error": "Name is required"
+    },
+    "contactEmail": {
+      "label": "Your Email",
+      "placeholder": "jane@company.com",
+      "error": "Valid email is required"
+    },
+    "contactPhone": {
+      "label": "Phone Number (Optional)",
+      "placeholder": "+91 98765 43210"
+    }
+  }
+}
