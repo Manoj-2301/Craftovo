@@ -215,7 +215,7 @@ export default function ProjectIntakePage() {
 
     return (
       <div key={field.id} className="mb-8" id={field.id}>
-        <label className="block mb-2 font-medium text-[#0B0B0E]/80 uppercase tracking-wider text-sm">
+        <label className="block mb-2 font-medium text-[#0B0B0E]/70 text-sm">
           {field.label} {field.required && <span className="text-blue-600">*</span>}
         </label>
         
@@ -337,8 +337,8 @@ export default function ProjectIntakePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/5 to-transparent pointer-events-none"></div>
           <div className="w-full max-w-[1240px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-16 items-start relative z-10">
             <div>
-              <div className="flex items-center gap-3 mb-6 text-blue-600 font-semibold tracking-widest uppercase text-sm">
-                <span className="w-8 h-[2px] bg-blue-600"></span>
+              <div className="flex items-center gap-2.5 mb-6 text-sm font-medium text-blue-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" aria-hidden="true"></span>
                 Project intake
               </div>
               <h1 className="font-outfit text-5xl md:text-7xl font-semibold mb-8 text-[#0B0B0E] tracking-tight leading-[1.1]">
@@ -356,7 +356,7 @@ export default function ProjectIntakePage() {
             </div>
             
             <div className="border-t md:border-t-0 md:border-l border-black/10 pt-8 md:pt-0 md:pl-12">
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-[#0B0B0E]/50 mb-6">What's inside</h3>
+              <h3 className="text-sm font-semibold text-[#0B0B0E]/60 mb-6">What&apos;s inside</h3>
               <div className="flex flex-col gap-4">
                 {STEPS.map((step, idx) => (
                   <div key={step.id} className="flex items-center gap-4 text-[#0B0B0E]/80 pb-4 border-b border-black/5 last:border-0">
@@ -374,7 +374,7 @@ export default function ProjectIntakePage() {
             
             {/* Sidebar */}
             <aside className="hidden md:block sticky top-32">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[#0B0B0E]/50 mb-6">Your brief</h3>
+              <h3 className="text-xs font-semibold text-[#0B0B0E]/50 mb-6">Your brief</h3>
               <div className="flex flex-col">
                 {STEPS.map((step, idx) => (
                   <button 
@@ -425,7 +425,7 @@ export default function ProjectIntakePage() {
                     <div className="absolute top-8 right-8 md:top-12 md:right-12 text-[#0B0B0E]/5 font-serif text-6xl md:text-8xl leading-none">{String(currentStep + 1).padStart(2, '0')}</div>
                     
                     <div className="mb-10 relative z-10 pr-20">
-                      <div className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">Section {String(currentStep + 1).padStart(2, '0')}</div>
+                      <div className="text-xs font-medium text-blue-600 mb-3">Section {String(currentStep + 1).padStart(2, '0')}</div>
                       <h2 className="font-outfit text-3xl md:text-4xl font-medium mb-3 text-[#0B0B0E]">{STEPS[currentStep].title}</h2>
                       <p className="text-[#0B0B0E]/60 text-sm md:text-base leading-relaxed max-w-lg">{STEPS[currentStep].desc}</p>
                     </div>
@@ -464,7 +464,7 @@ export default function ProjectIntakePage() {
                     <div className="absolute top-8 right-8 md:top-12 md:right-12 text-[#0B0B0E]/5 font-serif text-6xl md:text-8xl leading-none">{(STEPS.length + 1).toString().padStart(2, '0')}</div>
                     
                     <div className="mb-10 relative z-10 pr-20">
-                      <div className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">Final step</div>
+                      <div className="text-xs font-medium text-blue-600 mb-3">Final step</div>
                       <h2 className="font-outfit text-3xl md:text-4xl font-medium mb-3 text-[#0B0B0E]">Review your brief</h2>
                       <p className="text-[#0B0B0E]/60 text-sm md:text-base leading-relaxed max-w-lg">Everything look right? Review your answers below before sending your project brief to Craftovo.</p>
                     </div>
@@ -476,7 +476,7 @@ export default function ProjectIntakePage() {
                         
                         return (
                           <div key={step.id} className="p-6 md:p-8 border-b border-black/5 last:border-0">
-                            <h4 className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-6">{step.title}</h4>
+                            <h4 className="text-xs font-semibold text-blue-600 mb-6">{step.title}</h4>
                             <div className="flex flex-col gap-4">
                               {visibleFields.map(field => {
                                 const val = getDisplayValue(field);
@@ -494,10 +494,10 @@ export default function ProjectIntakePage() {
                     </div>
                     
                     <div className="mb-10">
-                      <h4 className="text-sm font-bold uppercase tracking-widest text-[#0B0B0E]/80 mb-6">Your Details</h4>
+                      <h4 className="text-sm font-semibold text-[#0B0B0E]/80 mb-6">Your Details</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block mb-2 font-medium text-[#0B0B0E]/80 uppercase tracking-wider text-sm">Your Name <span className="text-blue-600">*</span></label>
+                          <label className="block mb-2 font-medium text-[#0B0B0E]/70 text-sm">Your Name <span className="text-blue-600">*</span></label>
                           <input 
                             type="text" 
                             value={state.submitterName || ''} 
@@ -507,7 +507,7 @@ export default function ProjectIntakePage() {
                           />
                         </div>
                         <div>
-                          <label className="block mb-2 font-medium text-[#0B0B0E]/80 uppercase tracking-wider text-sm">Your Email <span className="text-blue-600">*</span></label>
+                          <label className="block mb-2 font-medium text-[#0B0B0E]/70 text-sm">Your Email <span className="text-blue-600">*</span></label>
                           <input 
                             type="email" 
                             value={state.submitterEmail || ''} 

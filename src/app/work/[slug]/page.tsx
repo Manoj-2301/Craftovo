@@ -51,8 +51,7 @@ export default async function ProjectPage({ params }: Props) {
 
             <AnimateIn delay={0.2}>
               <div className="w-full aspect-video glass-panel rounded-[2rem] overflow-hidden relative flex items-center justify-center bg-white/40">
-                 {/* Placeholder for project image */}
-                 <span className="text-text-main/20 font-outfit text-3xl">Project Image: {project.title}</span>
+                 <Image src={project.image} alt={project.title} fill className="object-cover" referrerPolicy="no-referrer" priority />
               </div>
             </AnimateIn>
           </Container>

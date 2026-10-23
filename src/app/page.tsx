@@ -14,31 +14,41 @@ export default function HomePage() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden flex flex-col items-center justify-center min-h-[70vh]">
-          <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Hero Background" fill className="object-cover opacity-[0.07] pointer-events-none mix-blend-multiply grayscale" referrerPolicy="no-referrer" priority />
+        <section className="relative pt-32 pb-16 md:pt-44 md:pb-20 overflow-hidden">
+          <Image src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="" fill className="object-cover opacity-[0.07] pointer-events-none mix-blend-multiply grayscale" referrerPolicy="no-referrer" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F4F4F6]/50 to-[#F4F4F6] pointer-events-none"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-white/60 rounded-full blur-[120px] pointer-events-none"></div>
-          
-          <Container className="relative z-10 flex flex-col items-center text-center">
-            <AnimateIn>
-              <div className="inline-block px-4 py-2 rounded-full glass-panel text-xs font-bold tracking-widest uppercase text-text-muted mb-8">
-                Premium Digital Studio
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={0.1}>
-              <h1 className="font-outfit text-5xl md:text-7xl lg:text-[96px] font-medium mb-8 max-w-[1100px] leading-[1.05] tracking-tight text-text-main">
-                We build digital <em className="text-blue-600 not-italic font-medium">experiences</em> that define tomorrow.
-              </h1>
-            </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <p className="text-lg md:text-2xl text-text-muted max-w-[650px] mb-12 leading-relaxed font-light">
-                Elevate your brand with world-class web applications, immersive websites, and scalable digital ecosystems.
-              </p>
-            </AnimateIn>
-            <AnimateIn delay={0.3} className="flex flex-col sm:flex-row gap-5">
-              <Button href="/project-intake">Start a Project</Button>
-              <Button href="/work" variant="secondary">Explore Our Work</Button>
-            </AnimateIn>
+
+          <Container className="relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end">
+              <AnimateIn className="lg:col-span-7">
+                <h1 className="font-outfit text-[clamp(2.75rem,7.5vw,6.25rem)] font-medium leading-[0.98] tracking-[-0.03em] text-text-main">
+                  We build digital experiences that define tomorrow.
+                </h1>
+              </AnimateIn>
+              <AnimateIn delay={0.15} className="lg:col-span-4 lg:col-start-9 flex flex-col gap-8 lg:pb-2">
+                <p className="text-lg md:text-xl text-text-muted leading-relaxed font-light">
+                  Elevate your brand with world-class web applications, immersive websites, and scalable digital ecosystems.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button href="/project-intake">Start a Project</Button>
+                  <Button href="/work" variant="secondary">Explore Our Work</Button>
+                </div>
+              </AnimateIn>
+            </div>
+
+            <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 border-t border-black/10 divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+              {[
+                ['One team', 'Design and engineering under the same roof.'],
+                ['End to end', 'Strategy, design, build, and launch.'],
+                ['24 hours', 'Typical time to hear back from us.'],
+              ].map(([label, desc]) => (
+                <div key={label} className="py-6 sm:px-8 sm:first:pl-0 flex flex-col gap-1">
+                  <span className="font-outfit text-lg font-medium text-text-main">{label}</span>
+                  <span className="text-sm text-text-muted font-light">{desc}</span>
+                </div>
+              ))}
+            </div>
           </Container>
         </section>
         

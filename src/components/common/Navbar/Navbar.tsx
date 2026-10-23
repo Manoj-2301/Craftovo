@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none">
-      <div className={`pointer-events-auto w-full max-w-[1280px] rounded-full transition-all duration-500 flex items-center justify-between px-6 py-4 ${scrolled ? 'glass-panel shadow-2xl shadow-black/5 py-3' : 'bg-transparent'}`}>
+      <div className={`pointer-events-auto w-full max-w-[1280px] rounded-full transition-all duration-500 flex items-center justify-between px-6 py-4 border ${scrolled ? 'glass-panel shadow-2xl shadow-black/5 py-3 border-black/5' : 'bg-transparent border-transparent'}`}>
         <Link href="/" className="font-outfit font-bold text-xl tracking-tight flex items-center gap-3 text-text-main group">
           <span className="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-black group-hover:scale-110 shadow-lg shadow-blue-600/20 transition-transform">C</span>
           Craftovo
@@ -24,7 +24,7 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
-          {['Services', 'Work', 'Gigs', 'About', 'FAQ'].map((item) => (
+          {['Services', 'Work', 'Gigs', 'About', 'FAQ', 'Contact'].map((item) => (
             <Link key={item} href={`/${item.toLowerCase()}`} className="text-sm font-medium text-text-muted hover:text-text-main transition-colors">
               {item}
             </Link>
@@ -32,7 +32,7 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/project-intake" className="bg-blue-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 shadow-md shadow-blue-600/20 hover:-translate-y-0.5 transition-all duration-300 inline-block">
+          <Link href="/project-intake" className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 shadow-md shadow-blue-600/25 hover:-translate-y-0.5 transition-all duration-300 inline-block">
             Start Project
           </Link>
         </div>

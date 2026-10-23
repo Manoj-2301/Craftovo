@@ -48,7 +48,7 @@ export const ContactForm = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0B0B0E]/80 uppercase tracking-wider">Name</label>
+          <label className="text-sm font-medium text-[#0B0B0E]/70">Name</label>
           <input 
             type="text" 
             {...register('name')}
@@ -62,7 +62,7 @@ export const ContactForm = () => {
           )}
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0B0B0E]/80 uppercase tracking-wider">Email</label>
+          <label className="text-sm font-medium text-[#0B0B0E]/70">Email</label>
           <input 
             type="email" 
             {...register('email')}
@@ -78,7 +78,7 @@ export const ContactForm = () => {
       </div>
       
       <div className="flex flex-col gap-2 relative z-10">
-        <label className="text-sm font-medium text-[#0B0B0E]/80 uppercase tracking-wider">Project Details</label>
+        <label className="text-sm font-medium text-[#0B0B0E]/70">Project Details</label>
         <textarea 
           rows={6} 
           {...register('details')}

@@ -2,11 +2,12 @@ import { AnimateIn } from '../AnimateIn/AnimateIn';
 
 export const SectionHeading = ({ title, description, badge, align = 'start' }: any) => {
   const alignClasses = align === 'center' ? 'items-center text-center' : 'items-start text-left';
-  
+
   return (
-    <AnimateIn className={`mb-16 md:mb-24 flex flex-col ${alignClasses}`}>
+    <AnimateIn className={`mb-14 md:mb-20 flex flex-col ${alignClasses}`}>
       {badge && (
-        <div className="inline-block px-4 py-2 rounded-full glass-panel text-xs font-bold tracking-widest uppercase text-text-muted mb-6">
+        <div className="flex items-center gap-2.5 mb-5 text-sm font-medium text-text-muted">
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" aria-hidden="true" />
           {badge}
         </div>
       )}

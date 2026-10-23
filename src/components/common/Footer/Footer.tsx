@@ -11,13 +11,13 @@ export const Footer = () => (
         <p className="text-text-muted text-lg max-w-sm font-light">Designing digital products that shape the future of business.</p>
       </div>
       <div className="flex flex-col gap-4">
-        <h4 className="text-text-main font-medium mb-2 tracking-wide text-sm uppercase">Company</h4>
+        <h4 className="text-text-main font-medium mb-2 text-sm">Company</h4>
         {['Work', 'Services', 'Gigs', 'About', 'FAQ'].map(item => (
           <Link key={item} href={`/${item.toLowerCase()}`} className="text-text-muted hover:text-text-main transition-colors font-light">{item}</Link>
         ))}
       </div>
       <div className="flex flex-col gap-4">
-        <h4 className="text-text-main font-medium mb-2 tracking-wide text-sm uppercase">Connect</h4>
+        <h4 className="text-text-main font-medium mb-2 text-sm">Connect</h4>
         <Link href="/contact" className="text-text-muted hover:text-text-main transition-colors font-light">Contact Us</Link>
         <a href="#" className="text-text-muted hover:text-text-main transition-colors font-light">Twitter</a>
         <a href="#" className="text-text-muted hover:text-text-main transition-colors font-light">LinkedIn</a>
